@@ -296,7 +296,7 @@ const GetInvolved = () => {
       </section>
 
       {/* Donation Section */}
-      <section className="section-padding fade-in-section">
+      <section id="donation" className="section-padding fade-in-section">
         <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="section-title mb-6">

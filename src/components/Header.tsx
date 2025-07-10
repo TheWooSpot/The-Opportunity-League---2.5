@@ -99,7 +99,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block animate-fade-in-right">
-            <Link to="/donate" className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 text-lg hover:transform hover:scale-105 hover:shadow-lg">
+            <Link to="/get-involved#donation" className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 text-lg hover:transform hover:scale-105 hover:shadow-lg">
               Donate
             </Link>
           </div>
@@ -140,7 +140,7 @@ const Header = () => {
                 </Link>
               ))}
               <div className="px-4 pt-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                <Link to="/donate" className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 w-full text-center block text-lg hover:transform hover:scale-105">
+                <Link to="/get-involved#donation" className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 w-full text-center block text-lg hover:transform hover:scale-105">
                   Donate
                 </Link>
               </div>
