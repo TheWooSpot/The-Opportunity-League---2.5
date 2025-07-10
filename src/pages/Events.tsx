@@ -27,7 +27,7 @@ const Events = () => {
       id: 1,
       title: 'Annual Community Gala',
       description: 'Join us for an evening of celebration, recognition, and fundraising to support our community programs.',
-      date: '2024-03-15',
+      date: '2025-03-15',
       time: '6:00 PM - 10:00 PM',
       location: 'Grand Ballroom, Downtown Convention Center',
       category: 'Fundraising',
@@ -39,7 +39,7 @@ const Events = () => {
       id: 2,
       title: 'Youth Leadership Summit',
       description: 'A day-long conference for young leaders featuring workshops, networking, and inspirational speakers.',
-      date: '2024-03-22',
+      date: '2025-03-22',
       time: '9:00 AM - 4:00 PM',
       location: 'Community Center Main Hall',
       category: 'Youth Development',
@@ -51,7 +51,7 @@ const Events = () => {
       id: 3,
       title: 'Career Fair & Job Expo',
       description: 'Connect with local employers, explore career opportunities, and access on-site interviews.',
-      date: '2024-04-05',
+      date: '2025-04-05',
       time: '10:00 AM - 3:00 PM',
       location: 'Sports Complex Exhibition Hall',
       category: 'Career Development',
@@ -63,7 +63,7 @@ const Events = () => {
       id: 4,
       title: 'Family Fun Day',
       description: 'A community celebration with activities for all ages, food trucks, live music, and program showcases.',
-      date: '2024-04-20',
+      date: '2025-04-20',
       time: '11:00 AM - 5:00 PM',
       location: 'Central Park Pavilion',
       category: 'Community',
@@ -75,7 +75,7 @@ const Events = () => {
       id: 5,
       title: 'Professional Development Workshop',
       description: 'Advanced training session focusing on leadership skills and career advancement strategies.',
-      date: '2024-05-10',
+      date: '2025-05-10',
       time: '6:00 PM - 8:30 PM',
       location: 'Business Development Center',
       category: 'Professional Development',
@@ -87,13 +87,49 @@ const Events = () => {
       id: 6,
       title: 'Arts & Culture Showcase',
       description: 'Celebrating creativity in our community with art exhibitions, performances, and cultural presentations.',
-      date: '2024-05-25',
+      date: '2026-05-25',
       time: '2:00 PM - 8:00 PM',
       location: 'Arts Center Gallery',
       category: 'Arts & Culture',
       attendees: '200+ art enthusiasts',
       featured: false,
       image: 'https://images.pexels.com/photos/1109541/pexels-photo-1109541.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      id: 7,
+      title: 'Community Health Fair',
+      description: 'Free health screenings, wellness workshops, and resources for maintaining a healthy lifestyle.',
+      date: '2026-06-12',
+      time: '9:00 AM - 3:00 PM',
+      location: 'Recreation Center Gymnasium',
+      category: 'Health & Wellness',
+      attendees: '400+ participants',
+      featured: false,
+      image: 'https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      id: 8,
+      title: 'Technology & Innovation Expo',
+      description: 'Showcasing cutting-edge technology, digital literacy workshops, and innovation in our community.',
+      date: '2026-09-18',
+      time: '10:00 AM - 6:00 PM',
+      location: 'Tech Hub Conference Center',
+      category: 'Technology',
+      attendees: '300+ tech enthusiasts',
+      featured: true,
+      image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      id: 9,
+      title: 'Annual Scholarship Awards Ceremony',
+      description: 'Celebrating academic excellence and awarding scholarships to outstanding students in our community.',
+      date: '2026-11-08',
+      time: '7:00 PM - 9:30 PM',
+      location: 'University Auditorium',
+      category: 'Education',
+      attendees: '250+ students and families',
+      featured: true,
+      image: 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ]
 
@@ -296,41 +332,4 @@ const Events = () => {
               { name: 'Education', icon: '📚', description: 'Learning opportunities for all ages' },
               { name: 'Sports & Recreation', icon: '⚽', description: 'Athletic events and recreational activities' }
             ].map((category, index) => (
-              <div key={index} className="card p-6 text-center animate-card-hover" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="text-4xl mb-4">{category.icon}</div>
-                <h3 className="feature-title mb-3">
-                  {category.name}
-                </h3>
-                <p className="body-text text-sm">
-                  {category.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-blue-800 text-white section-padding fade-in-section">
-        <div className="container-max text-center">
-          <h2 className="section-title text-white mb-6 animate-fade-in-up">
-            Stay Connected
-          </h2>
-          <p className="section-subtitle text-blue-100 mb-8 max-w-2xl mx-auto animate-fade-in-up-delay-1">
-            Don't miss out on upcoming events and opportunities. Subscribe to our newsletter or follow us on social media.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up-delay-2">
-            <button className="btn-primary bg-red-600 hover:bg-red-700">
-              Subscribe to Newsletter
-            </button>
-            <button className="btn-outline">
-              View Event Calendar
-            </button>
-          </div>
-        </div>
-      </section>
-    </div>
-  )
-}
-
-export default Events
+              <div key={index} className="card p
