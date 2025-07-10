@@ -949,7 +949,7 @@ const Programs = () => {
                       <p className="text-sm font-semibold text-blue-800">{program.duration}</p>
                     </div>
                     <button className="btn-primary text-sm px-4 py-2 inline-flex items-center">
-                      Learn More
+                      Add to Cart
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </button>
                   </div>
