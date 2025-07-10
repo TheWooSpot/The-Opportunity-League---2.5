@@ -27,7 +27,7 @@ const Events = () => {
       id: 1,
       title: 'Annual Community Gala',
       description: 'Join us for an evening of celebration, recognition, and fundraising to support our community programs.',
-      date: '2025-03-15',
+      date: '2024-03-15',
       time: '6:00 PM - 10:00 PM',
       location: 'Grand Ballroom, Downtown Convention Center',
       category: 'Fundraising',
@@ -39,7 +39,7 @@ const Events = () => {
       id: 2,
       title: 'Youth Leadership Summit',
       description: 'A day-long conference for young leaders featuring workshops, networking, and inspirational speakers.',
-      date: '2025-03-22',
+      date: '2024-03-22',
       time: '9:00 AM - 4:00 PM',
       location: 'Community Center Main Hall',
       category: 'Youth Development',
@@ -51,7 +51,7 @@ const Events = () => {
       id: 3,
       title: 'Career Fair & Job Expo',
       description: 'Connect with local employers, explore career opportunities, and access on-site interviews.',
-      date: '2025-04-05',
+      date: '2024-04-05',
       time: '10:00 AM - 3:00 PM',
       location: 'Sports Complex Exhibition Hall',
       category: 'Career Development',
@@ -63,7 +63,7 @@ const Events = () => {
       id: 4,
       title: 'Family Fun Day',
       description: 'A community celebration with activities for all ages, food trucks, live music, and program showcases.',
-      date: '2025-04-20',
+      date: '2024-04-20',
       time: '11:00 AM - 5:00 PM',
       location: 'Central Park Pavilion',
       category: 'Community',
@@ -75,7 +75,7 @@ const Events = () => {
       id: 5,
       title: 'Professional Development Workshop',
       description: 'Advanced training session focusing on leadership skills and career advancement strategies.',
-      date: '2026-05-10',
+      date: '2024-05-10',
       time: '6:00 PM - 8:30 PM',
       location: 'Business Development Center',
       category: 'Professional Development',
@@ -87,55 +87,19 @@ const Events = () => {
       id: 6,
       title: 'Arts & Culture Showcase',
       description: 'Celebrating creativity in our community with art exhibitions, performances, and cultural presentations.',
-      date: '2026-05-25',
+      date: '2024-05-25',
       time: '2:00 PM - 8:00 PM',
       location: 'Arts Center Gallery',
       category: 'Arts & Culture',
       attendees: '200+ art enthusiasts',
       featured: false,
       image: 'https://images.pexels.com/photos/1109541/pexels-photo-1109541.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 7,
-      title: 'Technology Innovation Fair',
-      description: 'Showcasing cutting-edge technology solutions and digital innovation projects from local youth and entrepreneurs.',
-      date: '2026-06-12',
-      time: '10:00 AM - 6:00 PM',
-      location: 'Innovation Hub Conference Center',
-      category: 'Technology',
-      attendees: '400+ tech enthusiasts',
-      featured: true,
-      image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 8,
-      title: 'Community Health & Wellness Festival',
-      description: 'A comprehensive health fair featuring free screenings, wellness workshops, fitness demonstrations, and healthy living resources.',
-      date: '2026-07-18',
-      time: '9:00 AM - 4:00 PM',
-      location: 'Riverside Park Amphitheater',
-      category: 'Health & Wellness',
-      attendees: '600+ community members',
-      featured: false,
-      image: 'https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 9,
-      title: 'Annual Scholarship Awards Ceremony',
-      description: 'Celebrating academic excellence and recognizing outstanding students with scholarship awards and educational opportunities.',
-      date: '2026-08-15',
-      time: '7:00 PM - 9:30 PM',
-      location: 'University Auditorium',
-      category: 'Education',
-      attendees: '250+ students and families',
-      featured: true,
-      image: 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ]
 
   const pastEvents = [
     {
-      id: 10,
+      id: 7,
       title: 'Winter Holiday Celebration',
       description: 'Community gathering with holiday activities, gift distribution, and seasonal festivities.',
       date: '2023-12-15',
@@ -144,7 +108,7 @@ const Events = () => {
       image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
-      id: 11,
+      id: 8,
       title: 'Back-to-School Resource Fair',
       description: 'Annual event providing school supplies, health screenings, and educational resources for families.',
       date: '2023-08-12',
@@ -153,7 +117,7 @@ const Events = () => {
       image: 'https://images.pexels.com/photos/8471781/pexels-photo-8471781.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
-      id: 12,
+      id: 9,
       title: 'Community Health & Wellness Expo',
       description: 'Health screenings, wellness workshops, and resources for healthy living in our community.',
       date: '2023-06-18',
@@ -330,8 +294,7 @@ const Events = () => {
               { name: 'Arts & Culture', icon: '🎨', description: 'Showcasing creativity and cultural diversity' },
               { name: 'Health & Wellness', icon: '🏃', description: 'Promoting physical and mental well-being' },
               { name: 'Education', icon: '📚', description: 'Learning opportunities for all ages' },
-              { name: 'Sports & Recreation', icon: '⚽', description: 'Athletic events and recreational activities' },
-              { name: 'Technology', icon: '💻', description: 'Innovation and digital advancement showcases' }
+              { name: 'Sports & Recreation', icon: '⚽', description: 'Athletic events and recreational activities' }
             ].map((category, index) => (
               <div key={index} className="card p-6 text-center animate-card-hover" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="text-4xl mb-4">{category.icon}</div>
