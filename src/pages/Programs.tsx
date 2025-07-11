@@ -1,871 +1,865 @@
-import React, { useEffect, useState } from 'react'
-import { GraduationCap, Users, Briefcase, Heart, ArrowRight, CheckCircle, Filter, Calendar, Clock, MapPin, Star } from 'lucide-react'
+import React, { useState } from 'react'
 
 const Programs = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedAgeGroup, setSelectedAgeGroup] = useState('all')
   const [selectedDay, setSelectedDay] = useState('all')
 
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible')
-        }
-      })
-    }, observerOptions)
-
-    const animatedElements = document.querySelectorAll('.fade-in-section')
-    animatedElements.forEach(el => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
-
   const programs = [
     // Academic Support Programs
     {
       id: 1,
       title: "After-School Tutoring",
-      category: "academic",
-      ageGroup: "elementary",
-      description: "Personalized academic support to help students excel in their studies.",
-      duration: "2 hours",
+      category: "Academic Support",
+      ageGroup: "6-18",
+      days: "Monday-Friday",
+      time: "3:00 PM - 6:00 PM",
+      description: "Personalized tutoring sessions to help students excel in core subjects including math, reading, and science.",
+      duration: "3 hours",
       schedule: "Monday-Friday",
-      location: "Main Campus",
-      capacity: 25,
-      enrolled: 18,
-      rating: 4.8,
-      image: "https://images.pexels.com/photos/8471831/pexels-photo-8471831.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Homework Help", "Test Prep", "Study Skills"]
+      enrollment: "18/25 enrolled",
+      features: ["Certified Tutors", "Small Groups", "Progress Tracking"],
+      rating: 4.9,
+      image: "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 2,
-      title: "STEM Explorers",
-      category: "academic",
-      ageGroup: "middle",
-      description: "Hands-on science, technology, engineering, and math activities.",
-      duration: "3 hours",
-      schedule: "Saturdays",
-      location: "Science Lab",
-      capacity: 20,
-      enrolled: 15,
-      rating: 4.9,
-      image: "https://images.pexels.com/photos/8471906/pexels-photo-8471906.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Robotics", "Coding", "Lab Experiments"]
+      title: "College Prep Workshop",
+      category: "Academic Support",
+      ageGroup: "14-18",
+      days: "Saturday",
+      time: "10:00 AM - 2:00 PM",
+      description: "Comprehensive college preparation including SAT/ACT prep, application assistance, and scholarship guidance.",
+      duration: "4 hours",
+      schedule: "Saturday",
+      enrollment: "12/15 enrolled",
+      features: ["SAT/ACT Prep", "Application Help", "Scholarship Guidance"],
+      rating: 4.8,
+      image: "https://images.pexels.com/photos/5940721/pexels-photo-5940721.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 3,
-      title: "College Prep Academy",
-      category: "academic",
-      ageGroup: "high",
-      description: "Comprehensive college preparation and application support.",
-      duration: "4 hours",
-      schedule: "Weekends",
-      location: "Academic Center",
-      capacity: 30,
-      enrolled: 22,
+      title: "Reading & Literacy Circle",
+      category: "Academic Support",
+      ageGroup: "6-12",
+      days: "Tuesday, Thursday",
+      time: "4:00 PM - 5:30 PM",
+      description: "Interactive reading sessions designed to improve literacy skills and foster a love for reading.",
+      duration: "1.5 hours",
+      schedule: "Tuesday, Thursday",
+      enrollment: "15/20 enrolled",
+      features: ["Interactive Sessions", "Reading Skills", "Literacy Focus"],
       rating: 4.7,
-      image: "https://images.pexels.com/photos/8471832/pexels-photo-8471832.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["SAT/ACT Prep", "Essay Writing", "College Applications"]
+      image: "https://images.pexels.com/photos/1181534/pexels-photo-1181534.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 4,
-      title: "Reading Champions",
-      category: "academic",
-      ageGroup: "elementary",
-      description: "Building strong reading foundations through engaging activities.",
-      duration: "1.5 hours",
-      schedule: "Tuesday/Thursday",
-      location: "Library",
-      capacity: 15,
-      enrolled: 12,
-      rating: 4.6,
-      image: "https://images.pexels.com/photos/8471833/pexels-photo-8471833.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Phonics", "Comprehension", "Storytelling"]
+      title: "STEM Learning Lab",
+      category: "Academic Support",
+      ageGroup: "8-16",
+      days: "Wednesday, Friday",
+      time: "3:30 PM - 5:30 PM",
+      description: "Hands-on science, technology, engineering, and math activities to spark curiosity and learning.",
+      duration: "2 hours",
+      schedule: "Wednesday, Friday",
+      enrollment: "20/25 enrolled",
+      features: ["Hands-on Activities", "STEM Focus", "Curiosity Building"],
+      rating: 4.9,
+      image: "https://images.pexels.com/photos/8471822/pexels-photo-8471822.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 5,
-      title: "Math Masters",
-      category: "academic",
-      ageGroup: "middle",
-      description: "Advanced mathematics program for accelerated learning.",
-      duration: "2.5 hours",
-      schedule: "Monday/Wednesday",
-      location: "Math Lab",
-      capacity: 18,
-      enrolled: 14,
-      rating: 4.8,
-      image: "https://images.pexels.com/photos/8471834/pexels-photo-8471834.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Algebra", "Geometry", "Problem Solving"]
+      title: "Study Skills Workshop",
+      category: "Academic Support",
+      ageGroup: "10-18",
+      days: "Monday",
+      time: "5:00 PM - 6:30 PM",
+      description: "Learn effective study techniques, time management, and organizational skills for academic success.",
+      duration: "1.5 hours",
+      schedule: "Monday",
+      enrollment: "14/18 enrolled",
+      features: ["Study Techniques", "Time Management", "Organization Skills"],
+      rating: 4.6,
+      image: "https://images.pexels.com/photos/5940841/pexels-photo-5940841.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 6,
-      title: "Academic Excellence",
-      category: "academic",
-      ageGroup: "high",
-      description: "Comprehensive academic support for high school success.",
-      duration: "3 hours",
-      schedule: "Daily",
-      location: "Study Hall",
-      capacity: 40,
-      enrolled: 35,
-      rating: 4.9,
-      image: "https://images.pexels.com/photos/8471835/pexels-photo-8471835.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["All Subjects", "Study Groups", "Peer Tutoring"]
-    },
-
-    // Sports & Recreation Programs
-    {
-      id: 7,
-      title: "Youth Basketball League",
-      category: "sports",
-      ageGroup: "middle",
-      description: "Competitive basketball program focusing on teamwork and skill development.",
-      duration: "2 hours",
-      schedule: "Tuesday/Thursday",
-      location: "Gymnasium",
-      capacity: 24,
-      enrolled: 20,
-      rating: 4.7,
-      image: "https://images.pexels.com/photos/8471836/pexels-photo-8471836.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Team Play", "Skill Training", "Tournaments"]
-    },
-    {
-      id: 8,
-      title: "Soccer Stars",
-      category: "sports",
-      ageGroup: "elementary",
-      description: "Fun and engaging soccer program for young athletes.",
+      title: "Math Mastery Program",
+      category: "Academic Support",
+      ageGroup: "8-16",
+      days: "Tuesday, Thursday",
+      time: "3:00 PM - 4:30 PM",
+      description: "Focused math instruction and practice to build confidence and competency in mathematics.",
       duration: "1.5 hours",
-      schedule: "Saturdays",
-      location: "Sports Field",
-      capacity: 30,
-      enrolled: 25,
+      schedule: "Tuesday, Thursday",
+      enrollment: "16/20 enrolled",
+      features: ["Math Focus", "Confidence Building", "Competency Development"],
       rating: 4.8,
-      image: "https://images.pexels.com/photos/8471837/pexels-photo-8471837.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Basic Skills", "Team Spirit", "Fun Games"]
-    },
-    {
-      id: 9,
-      title: "Track & Field Club",
-      category: "sports",
-      ageGroup: "high",
-      description: "Comprehensive track and field training program.",
-      duration: "2.5 hours",
-      schedule: "Monday/Wednesday/Friday",
-      location: "Athletic Track",
-      capacity: 35,
-      enrolled: 28,
-      rating: 4.6,
-      image: "https://images.pexels.com/photos/8471838/pexels-photo-8471838.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Running", "Jumping", "Throwing"]
-    },
-    {
-      id: 10,
-      title: "Swimming Lessons",
-      category: "sports",
-      ageGroup: "all",
-      description: "Learn to swim in a safe and supportive environment.",
-      duration: "1 hour",
-      schedule: "Daily",
-      location: "Pool",
-      capacity: 12,
-      enrolled: 10,
-      rating: 4.9,
-      image: "https://images.pexels.com/photos/8471839/pexels-photo-8471839.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Water Safety", "Stroke Technique", "Confidence Building"]
-    },
-    {
-      id: 11,
-      title: "Tennis Academy",
-      category: "sports",
-      ageGroup: "middle",
-      description: "Professional tennis instruction for all skill levels.",
-      duration: "2 hours",
-      schedule: "Weekends",
-      location: "Tennis Courts",
-      capacity: 16,
-      enrolled: 12,
-      rating: 4.7,
-      image: "https://images.pexels.com/photos/8471840/pexels-photo-8471840.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Technique", "Strategy", "Match Play"]
-    },
-    {
-      id: 12,
-      title: "Fitness & Wellness",
-      category: "sports",
-      ageGroup: "high",
-      description: "Comprehensive fitness program promoting healthy lifestyles.",
-      duration: "1.5 hours",
-      schedule: "Monday/Wednesday/Friday",
-      location: "Fitness Center",
-      capacity: 25,
-      enrolled: 20,
-      rating: 4.8,
-      image: "https://images.pexels.com/photos/8471841/pexels-photo-8471841.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Strength Training", "Cardio", "Nutrition Education"]
-    },
-
-    // Arts & Creativity Programs
-    {
-      id: 13,
-      title: "Creative Arts Studio",
-      category: "arts",
-      ageGroup: "elementary",
-      description: "Explore various art forms and unleash creativity.",
-      duration: "2 hours",
-      schedule: "Saturdays",
-      location: "Art Studio",
-      capacity: 20,
-      enrolled: 16,
-      rating: 4.9,
-      image: "https://images.pexels.com/photos/8471842/pexels-photo-8471842.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Painting", "Drawing", "Crafts"]
-    },
-    {
-      id: 14,
-      title: "Music Makers",
-      category: "arts",
-      ageGroup: "middle",
-      description: "Learn instruments and develop musical talents.",
-      duration: "1.5 hours",
-      schedule: "Tuesday/Thursday",
-      location: "Music Room",
-      capacity: 15,
-      enrolled: 13,
-      rating: 4.8,
-      image: "https://images.pexels.com/photos/8471843/pexels-photo-8471843.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Piano", "Guitar", "Vocals"]
-    },
-    {
-      id: 15,
-      title: "Drama Club",
-      category: "arts",
-      ageGroup: "high",
-      description: "Develop acting skills and stage presence.",
-      duration: "3 hours",
-      schedule: "Weekends",
-      location: "Theater",
-      capacity: 25,
-      enrolled: 18,
-      rating: 4.7,
-      image: "https://images.pexels.com/photos/8471844/pexels-photo-8471844.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Acting", "Improvisation", "Stage Production"]
-    },
-    {
-      id: 16,
-      title: "Digital Media Lab",
-      category: "arts",
-      ageGroup: "high",
-      description: "Learn digital art, video editing, and multimedia creation.",
-      duration: "2.5 hours",
-      schedule: "Monday/Wednesday",
-      location: "Media Lab",
-      capacity: 18,
-      enrolled: 15,
-      rating: 4.8,
-      image: "https://images.pexels.com/photos/8471845/pexels-photo-8471845.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Video Editing", "Graphic Design", "Animation"]
-    },
-    {
-      id: 17,
-      title: "Photography Workshop",
-      category: "arts",
-      ageGroup: "middle",
-      description: "Capture the world through the lens of creativity.",
-      duration: "2 hours",
-      schedule: "Saturdays",
-      location: "Photography Studio",
-      capacity: 12,
-      enrolled: 10,
-      rating: 4.9,
-      image: "https://images.pexels.com/photos/8471846/pexels-photo-8471846.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Composition", "Lighting", "Digital Processing"]
-    },
-    {
-      id: 18,
-      title: "Creative Writing Circle",
-      category: "arts",
-      ageGroup: "all",
-      description: "Express yourself through the power of words.",
-      duration: "1.5 hours",
-      schedule: "Friday",
-      location: "Writing Lab",
-      capacity: 15,
-      enrolled: 11,
-      rating: 4.6,
-      image: "https://images.pexels.com/photos/8471847/pexels-photo-8471847.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Poetry", "Short Stories", "Publishing"]
+      image: "https://images.pexels.com/photos/5940719/pexels-photo-5940719.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
 
     // Life Skills Programs
     {
-      id: 19,
-      title: "Leadership Development",
-      category: "life-skills",
-      ageGroup: "high",
-      description: "Build leadership skills and confidence for future success.",
+      id: 7,
+      title: "Financial Literacy Workshop",
+      category: "Life Skills",
+      ageGroup: "14-18",
+      days: "Saturday",
+      time: "9:00 AM - 11:00 AM",
+      description: "Essential money management skills including budgeting, saving, and understanding credit.",
       duration: "2 hours",
-      schedule: "Weekends",
-      location: "Conference Room",
-      capacity: 20,
-      enrolled: 16,
-      rating: 4.8,
-      image: "https://images.pexels.com/photos/8471848/pexels-photo-8471848.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Public Speaking", "Team Building", "Project Management"]
-    },
-    {
-      id: 20,
-      title: "Financial Literacy",
-      category: "life-skills",
-      ageGroup: "high",
-      description: "Learn essential money management and financial planning skills.",
-      duration: "1.5 hours",
-      schedule: "Tuesday",
-      location: "Classroom A",
-      capacity: 25,
-      enrolled: 20,
+      schedule: "Saturday",
+      enrollment: "10/15 enrolled",
+      features: ["Money Management", "Budgeting Skills", "Credit Education"],
       rating: 4.7,
-      image: "https://images.pexels.com/photos/8471849/pexels-photo-8471849.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Budgeting", "Saving", "Investing"]
+      image: "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
-      id: 21,
-      title: "Communication Skills",
-      category: "life-skills",
-      ageGroup: "middle",
-      description: "Develop effective communication and interpersonal skills.",
+      id: 8,
+      title: "Cooking & Nutrition Class",
+      category: "Life Skills",
+      ageGroup: "10-18",
+      days: "Wednesday",
+      time: "4:00 PM - 6:00 PM",
+      description: "Learn healthy cooking techniques and nutrition basics for lifelong wellness.",
+      duration: "2 hours",
+      schedule: "Wednesday",
+      enrollment: "12/16 enrolled",
+      features: ["Healthy Cooking", "Nutrition Education", "Wellness Focus"],
+      rating: 4.8,
+      image: "https://images.pexels.com/photos/4253302/pexels-photo-4253302.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 9,
+      title: "Communication Skills Training",
+      category: "Life Skills",
+      ageGroup: "12-18",
+      days: "Friday",
+      time: "3:30 PM - 5:00 PM",
+      description: "Develop effective verbal and written communication skills for personal and professional success.",
+      duration: "1.5 hours",
+      schedule: "Friday",
+      enrollment: "14/18 enrolled",
+      features: ["Verbal Skills", "Written Communication", "Professional Development"],
+      rating: 4.6,
+      image: "https://images.pexels.com/photos/5940860/pexels-photo-5940860.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 10,
+      title: "Time Management Workshop",
+      category: "Life Skills",
+      ageGroup: "12-18",
+      days: "Thursday",
+      time: "4:30 PM - 6:00 PM",
+      description: "Learn to prioritize tasks, manage schedules, and balance responsibilities effectively.",
       duration: "1.5 hours",
       schedule: "Thursday",
-      location: "Classroom B",
-      capacity: 18,
-      enrolled: 14,
-      rating: 4.6,
-      image: "https://images.pexels.com/photos/8471850/pexels-photo-8471850.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Active Listening", "Presentation Skills", "Conflict Resolution"]
-    },
-    {
-      id: 22,
-      title: "Cooking & Nutrition",
-      category: "life-skills",
-      ageGroup: "all",
-      description: "Learn healthy cooking and nutrition fundamentals.",
-      duration: "2.5 hours",
-      schedule: "Saturdays",
-      location: "Kitchen Lab",
-      capacity: 16,
-      enrolled: 13,
-      rating: 4.9,
-      image: "https://images.pexels.com/photos/8471851/pexels-photo-8471851.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Meal Planning", "Healthy Recipes", "Food Safety"]
-    },
-    {
-      id: 23,
-      title: "Time Management",
-      category: "life-skills",
-      ageGroup: "middle",
-      description: "Master the art of effective time management and organization.",
-      duration: "1 hour",
-      schedule: "Wednesday",
-      location: "Study Room",
-      capacity: 20,
-      enrolled: 15,
+      enrollment: "11/15 enrolled",
+      features: ["Task Prioritization", "Schedule Management", "Responsibility Balance"],
       rating: 4.5,
-      image: "https://images.pexels.com/photos/8471852/pexels-photo-8471852.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Planning", "Prioritization", "Goal Setting"]
+      image: "https://images.pexels.com/photos/5940721/pexels-photo-5940721.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
-      id: 24,
-      title: "Digital Citizenship",
-      category: "life-skills",
-      ageGroup: "elementary",
-      description: "Learn responsible and safe internet usage.",
-      duration: "1 hour",
-      schedule: "Friday",
-      location: "Computer Lab",
-      capacity: 22,
-      enrolled: 18,
+      id: 11,
+      title: "Digital Citizenship Program",
+      category: "Life Skills",
+      ageGroup: "10-16",
+      days: "Monday",
+      time: "4:00 PM - 5:30 PM",
+      description: "Safe and responsible use of technology, social media awareness, and online etiquette.",
+      duration: "1.5 hours",
+      schedule: "Monday",
+      enrollment: "16/20 enrolled",
+      features: ["Technology Safety", "Social Media Awareness", "Online Etiquette"],
       rating: 4.7,
-      image: "https://images.pexels.com/photos/8471853/pexels-photo-8471853.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Online Safety", "Digital Ethics", "Privacy Protection"]
+      image: "https://images.pexels.com/photos/5940719/pexels-photo-5940719.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 12,
+      title: "Leadership Development",
+      category: "Life Skills",
+      ageGroup: "14-18",
+      days: "Saturday",
+      time: "2:00 PM - 4:00 PM",
+      description: "Build leadership skills through team projects, public speaking, and community service opportunities.",
+      duration: "2 hours",
+      schedule: "Saturday",
+      enrollment: "13/16 enrolled",
+      features: ["Team Projects", "Public Speaking", "Community Service"],
+      rating: 4.9,
+      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
 
     // Career Development Programs
     {
-      id: 25,
-      title: "Career Exploration",
-      category: "career",
-      ageGroup: "high",
-      description: "Discover career paths and professional opportunities.",
+      id: 13,
+      title: "Job Readiness Training",
+      category: "Career Development",
+      ageGroup: "16-18",
+      days: "Tuesday, Thursday",
+      time: "5:00 PM - 7:00 PM",
+      description: "Resume writing, interview skills, and workplace etiquette preparation for first jobs.",
       duration: "2 hours",
-      schedule: "Monday",
-      location: "Career Center",
-      capacity: 30,
-      enrolled: 24,
+      schedule: "Tuesday, Thursday",
+      enrollment: "8/12 enrolled",
+      features: ["Resume Writing", "Interview Skills", "Workplace Etiquette"],
       rating: 4.8,
-      image: "https://images.pexels.com/photos/8471854/pexels-photo-8471854.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Career Assessments", "Industry Tours", "Guest Speakers"]
+      image: "https://images.pexels.com/photos/5940860/pexels-photo-5940860.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 14,
+      title: "Entrepreneurship Workshop",
+      category: "Career Development",
+      ageGroup: "14-18",
+      days: "Saturday",
+      time: "11:00 AM - 1:00 PM",
+      description: "Learn business basics, develop business plans, and explore entrepreneurial opportunities.",
+      duration: "2 hours",
+      schedule: "Saturday",
+      enrollment: "10/14 enrolled",
+      features: ["Business Basics", "Business Plans", "Entrepreneurial Skills"],
+      rating: 4.7,
+      image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 15,
+      title: "Career Exploration Series",
+      category: "Career Development",
+      ageGroup: "12-18",
+      days: "Friday",
+      time: "5:30 PM - 7:00 PM",
+      description: "Monthly presentations by professionals from various fields to explore career options.",
+      duration: "1.5 hours",
+      schedule: "Friday",
+      enrollment: "18/22 enrolled",
+      features: ["Professional Presentations", "Career Options", "Field Exploration"],
+      rating: 4.6,
+      image: "https://images.pexels.com/photos/5940841/pexels-photo-5940841.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 16,
+      title: "Internship Placement Program",
+      category: "Career Development",
+      ageGroup: "16-18",
+      days: "Monday-Friday",
+      time: "Flexible",
+      description: "Matched internship opportunities with local businesses and organizations.",
+      duration: "Flexible",
+      schedule: "Monday-Friday",
+      enrollment: "6/10 enrolled",
+      features: ["Business Matching", "Real Experience", "Professional Mentoring"],
+      rating: 4.9,
+      image: "https://images.pexels.com/photos/5940719/pexels-photo-5940719.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 17,
+      title: "Professional Networking Events",
+      category: "Career Development",
+      ageGroup: "16-18",
+      days: "Monthly",
+      time: "6:00 PM - 8:00 PM",
+      description: "Connect with professionals, learn about industries, and build professional relationships.",
+      duration: "2 hours",
+      schedule: "Monthly",
+      enrollment: "15/20 enrolled",
+      features: ["Professional Connections", "Industry Learning", "Relationship Building"],
+      rating: 4.8,
+      image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 18,
+      title: "Trade Skills Introduction",
+      category: "Career Development",
+      ageGroup: "14-18",
+      days: "Wednesday",
+      time: "3:00 PM - 5:00 PM",
+      description: "Hands-on introduction to various trade skills including carpentry, plumbing, and electrical work.",
+      duration: "2 hours",
+      schedule: "Wednesday",
+      enrollment: "12/16 enrolled",
+      features: ["Hands-on Learning", "Multiple Trades", "Practical Skills"],
+      rating: 4.7,
+      image: "https://images.pexels.com/photos/5940860/pexels-photo-5940860.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+
+    // Arts & Creative Programs
+    {
+      id: 19,
+      title: "Music Production Workshop",
+      category: "Arts & Creative",
+      ageGroup: "12-18",
+      days: "Tuesday, Thursday",
+      time: "4:00 PM - 6:00 PM",
+      description: "Learn music production, recording techniques, and digital audio workstation skills.",
+      duration: "2 hours",
+      schedule: "Tuesday, Thursday",
+      enrollment: "14/18 enrolled",
+      features: ["Music Production", "Recording Techniques", "Digital Skills"],
+      rating: 4.8,
+      image: "https://images.pexels.com/photos/1751731/pexels-photo-1751731.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 20,
+      title: "Visual Arts Studio",
+      category: "Arts & Creative",
+      ageGroup: "8-18",
+      days: "Monday, Wednesday",
+      time: "3:30 PM - 5:30 PM",
+      description: "Explore various art mediums including painting, drawing, sculpture, and digital art.",
+      duration: "2 hours",
+      schedule: "Monday, Wednesday",
+      enrollment: "16/20 enrolled",
+      features: ["Multiple Mediums", "Creative Expression", "Artistic Skills"],
+      rating: 4.7,
+      image: "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 21,
+      title: "Creative Writing Circle",
+      category: "Arts & Creative",
+      ageGroup: "10-18",
+      days: "Friday",
+      time: "4:00 PM - 5:30 PM",
+      description: "Develop writing skills through poetry, short stories, and collaborative storytelling.",
+      duration: "1.5 hours",
+      schedule: "Friday",
+      enrollment: "12/16 enrolled",
+      features: ["Poetry Writing", "Story Development", "Collaborative Work"],
+      rating: 4.6,
+      image: "https://images.pexels.com/photos/1181534/pexels-photo-1181534.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 22,
+      title: "Drama & Theater Program",
+      category: "Arts & Creative",
+      ageGroup: "8-18",
+      days: "Saturday",
+      time: "10:00 AM - 12:00 PM",
+      description: "Acting workshops, script reading, and full theatrical productions throughout the year.",
+      duration: "2 hours",
+      schedule: "Saturday",
+      enrollment: "18/22 enrolled",
+      features: ["Acting Workshops", "Script Reading", "Full Productions"],
+      rating: 4.9,
+      image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 23,
+      title: "Photography Club",
+      category: "Arts & Creative",
+      ageGroup: "12-18",
+      days: "Wednesday",
+      time: "5:00 PM - 6:30 PM",
+      description: "Learn photography techniques, photo editing, and develop a portfolio of work.",
+      duration: "1.5 hours",
+      schedule: "Wednesday",
+      enrollment: "10/14 enrolled",
+      features: ["Photography Techniques", "Photo Editing", "Portfolio Development"],
+      rating: 4.7,
+      image: "https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 24,
+      title: "Dance & Movement Class",
+      category: "Arts & Creative",
+      ageGroup: "6-18",
+      days: "Tuesday, Thursday",
+      time: "5:30 PM - 7:00 PM",
+      description: "Various dance styles including hip-hop, contemporary, and cultural dances.",
+      duration: "1.5 hours",
+      schedule: "Tuesday, Thursday",
+      enrollment: "20/25 enrolled",
+      features: ["Multiple Styles", "Cultural Dances", "Movement Expression"],
+      rating: 4.8,
+      image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+
+    // Sports & Recreation Programs
+    {
+      id: 25,
+      title: "Basketball League",
+      category: "Sports & Recreation",
+      ageGroup: "10-18",
+      days: "Monday, Wednesday, Friday",
+      time: "6:00 PM - 8:00 PM",
+      description: "Competitive and recreational basketball leagues for different skill levels.",
+      duration: "2 hours",
+      schedule: "Monday, Wednesday, Friday",
+      enrollment: "22/28 enrolled",
+      features: ["Competitive Leagues", "Skill Development", "Team Building"],
+      rating: 4.9,
+      image: "https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 26,
-      title: "Internship Program",
-      category: "career",
-      ageGroup: "high",
-      description: "Gain real-world work experience through structured internships.",
-      duration: "4 hours",
-      schedule: "Weekdays",
-      location: "Various Locations",
-      capacity: 15,
-      enrolled: 12,
-      rating: 4.9,
-      image: "https://images.pexels.com/photos/8471855/pexels-photo-8471855.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Mentorship", "Skill Development", "Networking"]
+      title: "Soccer Training Program",
+      category: "Sports & Recreation",
+      ageGroup: "6-16",
+      days: "Tuesday, Thursday",
+      time: "4:30 PM - 6:30 PM",
+      description: "Soccer skills development, team play, and competitive matches.",
+      duration: "2 hours",
+      schedule: "Tuesday, Thursday",
+      enrollment: "18/24 enrolled",
+      features: ["Skills Development", "Team Play", "Competitive Matches"],
+      rating: 4.8,
+      image: "https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 27,
-      title: "Resume Building Workshop",
-      category: "career",
-      ageGroup: "high",
-      description: "Create professional resumes and cover letters.",
+      title: "Swimming Lessons",
+      category: "Sports & Recreation",
+      ageGroup: "6-18",
+      days: "Saturday",
+      time: "9:00 AM - 11:00 AM",
+      description: "Swimming instruction for beginners to advanced swimmers, including water safety.",
       duration: "2 hours",
       schedule: "Saturday",
-      location: "Workshop Room",
-      capacity: 25,
-      enrolled: 20,
-      rating: 4.6,
-      image: "https://images.pexels.com/photos/8471856/pexels-photo-8471856.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Resume Writing", "Interview Prep", "Professional Branding"]
+      enrollment: "15/20 enrolled",
+      features: ["All Skill Levels", "Water Safety", "Professional Instruction"],
+      rating: 4.7,
+      image: "https://images.pexels.com/photos/863988/pexels-photo-863988.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 28,
-      title: "Entrepreneurship Club",
-      category: "career",
-      ageGroup: "middle",
-      description: "Learn business fundamentals and entrepreneurial thinking.",
-      duration: "2.5 hours",
-      schedule: "Wednesday",
-      location: "Innovation Lab",
-      capacity: 20,
-      enrolled: 16,
-      rating: 4.7,
-      image: "https://images.pexels.com/photos/8471857/pexels-photo-8471857.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Business Planning", "Marketing", "Financial Management"]
+      title: "Track & Field Club",
+      category: "Sports & Recreation",
+      ageGroup: "8-18",
+      days: "Monday, Wednesday",
+      time: "5:00 PM - 7:00 PM",
+      description: "Running, jumping, and throwing events with coaching and competitive opportunities.",
+      duration: "2 hours",
+      schedule: "Monday, Wednesday",
+      enrollment: "14/18 enrolled",
+      features: ["Multiple Events", "Professional Coaching", "Competition Prep"],
+      rating: 4.6,
+      image: "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 29,
-      title: "Job Readiness Training",
-      category: "career",
-      ageGroup: "high",
-      description: "Prepare for the workforce with essential job skills.",
-      duration: "3 hours",
-      schedule: "Thursday",
-      location: "Training Center",
-      capacity: 28,
-      enrolled: 22,
+      title: "Martial Arts Training",
+      category: "Sports & Recreation",
+      ageGroup: "8-18",
+      days: "Tuesday, Thursday",
+      time: "6:00 PM - 7:30 PM",
+      description: "Discipline, self-defense, and physical fitness through martial arts training.",
+      duration: "1.5 hours",
+      schedule: "Tuesday, Thursday",
+      enrollment: "16/20 enrolled",
+      features: ["Self-Defense", "Discipline Training", "Physical Fitness"],
       rating: 4.8,
-      image: "https://images.pexels.com/photos/8471858/pexels-photo-8471858.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Interview Skills", "Workplace Etiquette", "Professional Communication"]
+      image: "https://images.pexels.com/photos/4761663/pexels-photo-4761663.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 30,
-      title: "Tech Skills Bootcamp",
-      category: "career",
-      ageGroup: "high",
-      description: "Intensive technology skills training for modern careers.",
-      duration: "4 hours",
-      schedule: "Weekends",
-      location: "Tech Lab",
-      capacity: 18,
-      enrolled: 15,
+      title: "Outdoor Adventure Club",
+      category: "Sports & Recreation",
+      ageGroup: "10-18",
+      days: "Saturday",
+      time: "8:00 AM - 4:00 PM",
+      description: "Hiking, camping, rock climbing, and outdoor survival skills development.",
+      duration: "8 hours",
+      schedule: "Saturday",
+      enrollment: "12/16 enrolled",
+      features: ["Adventure Activities", "Survival Skills", "Nature Connection"],
       rating: 4.9,
-      image: "https://images.pexels.com/photos/8471859/pexels-photo-8471859.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Coding", "Data Analysis", "Digital Tools"]
+      image: "https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
 
     // Community Service Programs
     {
       id: 31,
       title: "Community Garden Project",
-      category: "community",
-      ageGroup: "all",
-      description: "Grow fresh produce while learning about sustainability.",
+      category: "Community Service",
+      ageGroup: "8-18",
+      days: "Saturday",
+      time: "9:00 AM - 12:00 PM",
+      description: "Learn gardening skills while growing fresh produce for local food banks.",
       duration: "3 hours",
-      schedule: "Saturdays",
-      location: "Community Garden",
-      capacity: 25,
-      enrolled: 20,
-      rating: 4.8,
-      image: "https://images.pexels.com/photos/8471860/pexels-photo-8471860.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Organic Gardening", "Environmental Education", "Community Impact"]
+      schedule: "Saturday",
+      enrollment: "14/18 enrolled",
+      features: ["Gardening Skills", "Community Impact", "Fresh Produce"],
+      rating: 4.7,
+      image: "https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 32,
       title: "Senior Center Visits",
-      category: "community",
-      ageGroup: "middle",
-      description: "Build intergenerational connections through regular visits.",
+      category: "Community Service",
+      ageGroup: "12-18",
+      days: "Sunday",
+      time: "2:00 PM - 4:00 PM",
+      description: "Regular visits to local senior centers for companionship and assistance.",
       duration: "2 hours",
-      schedule: "Sundays",
-      location: "Local Senior Centers",
-      capacity: 15,
-      enrolled: 12,
-      rating: 4.9,
-      image: "https://images.pexels.com/photos/8471861/pexels-photo-8471861.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Companionship", "Activity Assistance", "Story Sharing"]
+      schedule: "Sunday",
+      enrollment: "10/15 enrolled",
+      features: ["Companionship", "Community Service", "Intergenerational Connection"],
+      rating: 4.8,
+      image: "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 33,
-      title: "Environmental Cleanup",
-      category: "community",
-      ageGroup: "high",
-      description: "Protect our environment through community cleanup efforts.",
+      title: "Environmental Cleanup Initiative",
+      category: "Community Service",
+      ageGroup: "10-18",
+      days: "Monthly",
+      time: "10:00 AM - 2:00 PM",
+      description: "Organize and participate in neighborhood and park cleanup activities.",
       duration: "4 hours",
       schedule: "Monthly",
-      location: "Various Parks",
-      capacity: 40,
-      enrolled: 32,
-      rating: 4.7,
-      image: "https://images.pexels.com/photos/8471862/pexels-photo-8471862.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Park Restoration", "Recycling Education", "Team Building"]
+      enrollment: "16/20 enrolled",
+      features: ["Environmental Impact", "Community Pride", "Team Collaboration"],
+      rating: 4.6,
+      image: "https://images.pexels.com/photos/2547565/pexels-photo-2547565.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 34,
-      title: "Food Bank Volunteer",
-      category: "community",
-      ageGroup: "elementary",
-      description: "Help fight hunger in our community through food distribution.",
-      duration: "2.5 hours",
-      schedule: "Saturdays",
-      location: "Local Food Bank",
-      capacity: 20,
-      enrolled: 16,
-      rating: 4.8,
-      image: "https://images.pexels.com/photos/8471863/pexels-photo-8471863.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Food Sorting", "Distribution", "Community Awareness"]
+      title: "Food Bank Volunteer Program",
+      category: "Community Service",
+      ageGroup: "12-18",
+      days: "Wednesday",
+      time: "4:00 PM - 6:00 PM",
+      description: "Sort, pack, and distribute food to families in need through local food banks.",
+      duration: "2 hours",
+      schedule: "Wednesday",
+      enrollment: "12/16 enrolled",
+      features: ["Food Distribution", "Community Support", "Volunteer Experience"],
+      rating: 4.7,
+      image: "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 35,
-      title: "Reading Buddies",
-      category: "community",
-      ageGroup: "middle",
-      description: "Support younger students with reading and literacy.",
+      title: "Peer Mentoring Program",
+      category: "Community Service",
+      ageGroup: "14-18",
+      days: "Tuesday, Thursday",
+      time: "3:00 PM - 4:30 PM",
+      description: "Older youth mentor younger participants in academics and life skills.",
       duration: "1.5 hours",
-      schedule: "Tuesday/Thursday",
-      location: "Elementary Schools",
-      capacity: 18,
-      enrolled: 14,
-      rating: 4.6,
-      image: "https://images.pexels.com/photos/8471864/pexels-photo-8471864.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Mentoring", "Reading Support", "Educational Games"]
+      schedule: "Tuesday, Thursday",
+      enrollment: "8/12 enrolled",
+      features: ["Peer Support", "Academic Help", "Life Skills Mentoring"],
+      rating: 4.8,
+      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 36,
-      title: "Neighborhood Beautification",
-      category: "community",
-      ageGroup: "all",
-      description: "Improve local neighborhoods through beautification projects.",
-      duration: "3 hours",
-      schedule: "Weekends",
-      location: "Local Neighborhoods",
-      capacity: 30,
-      enrolled: 25,
+      title: "Community Event Planning",
+      category: "Community Service",
+      ageGroup: "14-18",
+      days: "Friday",
+      time: "5:00 PM - 7:00 PM",
+      description: "Plan and execute community events, fundraisers, and awareness campaigns.",
+      duration: "2 hours",
+      schedule: "Friday",
+      enrollment: "10/14 enrolled",
+      features: ["Event Planning", "Fundraising", "Campaign Management"],
       rating: 4.7,
-      image: "https://images.pexels.com/photos/8471865/pexels-photo-8471865.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Mural Painting", "Landscaping", "Community Pride"]
+      image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=400"
     }
   ]
 
-  const categories = [
-    { id: 'all', name: 'All Programs', icon: GraduationCap, color: 'bg-blue-500' },
-    { id: 'academic', name: 'Academic Support', icon: GraduationCap, color: 'bg-blue-500' },
-    { id: 'sports', name: 'Sports & Recreation', icon: Users, color: 'bg-green-500' },
-    { id: 'arts', name: 'Arts & Creativity', icon: Heart, color: 'bg-purple-500' },
-    { id: 'life-skills', name: 'Life Skills', icon: CheckCircle, color: 'bg-orange-500' },
-    { id: 'career', name: 'Career Development', icon: Briefcase, color: 'bg-red-500' },
-    { id: 'community', name: 'Community Service', icon: Heart, color: 'bg-pink-500' }
-  ]
-
-  const ageGroups = [
-    { id: 'all', name: 'All Ages' },
-    { id: 'elementary', name: 'Elementary (6-11)' },
-    { id: 'middle', name: 'Middle School (12-14)' },
-    { id: 'high', name: 'High School (15-18)' }
-  ]
-
-  const days = [
-    { id: 'all', name: 'All Days' },
-    { id: 'weekdays', name: 'Weekdays' },
-    { id: 'weekends', name: 'Weekends' },
-    { id: 'daily', name: 'Daily' }
-  ]
+  const categories = ['all', 'Academic Support', 'Life Skills', 'Career Development', 'Arts & Creative', 'Sports & Recreation', 'Community Service']
+  const ageGroups = ['all', '6-12', '8-16', '10-18', '12-18', '14-18', '16-18']
+  const days = ['all', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday-Friday', 'Monthly']
 
   const filteredPrograms = programs.filter(program => {
     const categoryMatch = selectedCategory === 'all' || program.category === selectedCategory
-    const ageMatch = selectedAgeGroup === 'all' || program.ageGroup === selectedAgeGroup
-    
-    let dayMatch = true
-    if (selectedDay !== 'all') {
-      const schedule = program.schedule.toLowerCase()
-      if (selectedDay === 'weekdays') {
-        dayMatch = schedule.includes('monday') || schedule.includes('tuesday') || 
-                  schedule.includes('wednesday') || schedule.includes('thursday') || 
-                  schedule.includes('friday') || schedule.includes('weekdays')
-      } else if (selectedDay === 'weekends') {
-        dayMatch = schedule.includes('saturday') || schedule.includes('sunday') || 
-                  schedule.includes('weekends')
-      } else if (selectedDay === 'daily') {
-        dayMatch = schedule.includes('daily')
-      }
-    }
+    const ageMatch = selectedAgeGroup === 'all' || program.ageGroup.includes(selectedAgeGroup.split('-')[0]) || program.ageGroup.includes(selectedAgeGroup.split('-')[1])
+    const dayMatch = selectedDay === 'all' || program.days.includes(selectedDay)
     
     return categoryMatch && ageMatch && dayMatch
   })
 
+  const getCategoryColor = (category) => {
+    const colors = {
+      'Academic Support': 'bg-blue-100 text-blue-800',
+      'Life Skills': 'bg-green-100 text-green-800',
+      'Career Development': 'bg-purple-100 text-purple-800',
+      'Arts & Creative': 'bg-pink-100 text-pink-800',
+      'Sports & Recreation': 'bg-orange-100 text-orange-800',
+      'Community Service': 'bg-red-100 text-red-800'
+    }
+    return colors[category] || 'bg-gray-100 text-gray-800'
+  }
+
+  const getFilterButtonColor = (filterType, value, selected) => {
+    if (selected) {
+      const colors = {
+        category: {
+          'Academic Support': 'bg-blue-600 text-white',
+          'Life Skills': 'bg-green-600 text-white',
+          'Career Development': 'bg-purple-600 text-white',
+          'Arts & Creative': 'bg-pink-600 text-white',
+          'Sports & Recreation': 'bg-orange-600 text-white',
+          'Community Service': 'bg-red-600 text-white',
+          'all': 'bg-gray-800 text-white'
+        }
+      }
+      return colors[filterType]?.[value] || 'bg-gray-800 text-white'
+    }
+    return 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+  }
+
+  const renderStars = (rating) => {
+    const fullStars = Math.floor(rating)
+    const hasHalfStar = rating % 1 !== 0
+    const stars = []
+
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(
+        <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+        </svg>
+      )
+    }
+
+    if (hasHalfStar) {
+      stars.push(
+        <svg key="half" className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+          <defs>
+            <linearGradient id="half">
+              <stop offset="50%" stopColor="currentColor"/>
+              <stop offset="50%" stopColor="transparent"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#half)" d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+        </svg>
+      )
+    }
+
+    return stars
+  }
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="bg-[#121212] text-white py-20 fade-in-section">
-        <div className="container-max">
-          <div className="text-center animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
-              Our Programs
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto animate-fade-in-up-delay-1">
-              Discover comprehensive programs designed to empower youth and build stronger communities
-            </p>
-          </div>
+      <div className="bg-[#121212] text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl font-bold mb-6 animate-fade-in">Our Programs</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-slide-up">
+            Discover comprehensive programs designed to empower youth through education, skill development, and community engagement.
+          </p>
         </div>
-      </section>
+      </div>
 
-      {/* Filter Section */}
-      <section className="py-12 bg-white border-b fade-in-section">
-        <div className="container-max">
-          <div className="text-center mb-8 animate-fade-in-up">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Find Your Perfect Program</h2>
-            <p className="text-lg text-gray-600">Use our filters to discover programs that match your interests and schedule</p>
-          </div>
-
-          {/* Filter Controls */}
-          <div className="grid md:grid-cols-3 gap-8 animate-fade-in-up-delay-1">
-            {/* Category Filter */}
+      {/* Filter Section - Three Column Layout */}
+      <div className="bg-gray-50 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">Find the Perfect Program</h2>
+          
+          {/* Three Column Filter Layout */}
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Category Filters */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                <Filter className="h-5 w-5 mr-2 text-blue-600" />
-                Program Category
-              </h3>
-              <div className="grid grid-cols-2 gap-2">
-                {categories.map((category) => {
-                  const IconComponent = category.icon
-                  return (
-                    <button
-                      key={category.id}
-                      onClick={() => setSelectedCategory(category.id)}
-                      className={`p-3 rounded-lg border-2 transition-all duration-300 text-left hover:transform hover:scale-105 ${
-                        selectedCategory === category.id
-                          ? `${category.color} text-white border-transparent shadow-lg`
-                          : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'
-                      }`}
-                    >
-                      <div className="flex items-center">
-                        <IconComponent className="h-4 w-4 mr-2" />
-                        <span className="text-sm font-medium">{category.name}</span>
-                      </div>
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* Age Group Filter */}
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                <Users className="h-5 w-5 mr-2 text-green-600" />
-                Age Group
-              </h3>
-              <div className="space-y-2">
-                {ageGroups.map((ageGroup) => (
+              <h3 className="text-lg font-semibold text-gray-700 mb-4">Program Categories</h3>
+              <div className="grid grid-cols-1 gap-3">
+                {categories.map(category => (
                   <button
-                    key={ageGroup.id}
-                    onClick={() => setSelectedAgeGroup(ageGroup.id)}
-                    className={`w-full p-3 rounded-lg border-2 transition-all duration-300 text-left hover:transform hover:scale-105 ${
-                      selectedAgeGroup === ageGroup.id
-                        ? 'bg-green-500 text-white border-transparent shadow-lg'
-                        : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 text-left ${
+                      getFilterButtonColor('category', category, selectedCategory === category)
                     }`}
                   >
-                    <span className="font-medium">{ageGroup.name}</span>
+                    {category === 'all' ? 'All Programs' : category}
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Schedule Filter */}
+            {/* Age Group Filters */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                <Calendar className="h-5 w-5 mr-2 text-purple-600" />
-                Schedule
-              </h3>
-              <div className="space-y-2">
-                {days.map((day) => (
+              <h3 className="text-lg font-semibold text-gray-700 mb-4">Age Groups</h3>
+              <div className="grid grid-cols-1 gap-3">
+                {ageGroups.map(age => (
                   <button
-                    key={day.id}
-                    onClick={() => setSelectedDay(day.id)}
-                    className={`w-full p-3 rounded-lg border-2 transition-all duration-300 text-left hover:transform hover:scale-105 ${
-                      selectedDay === day.id
-                        ? 'bg-purple-500 text-white border-transparent shadow-lg'
-                        : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'
+                    key={age}
+                    onClick={() => setSelectedAgeGroup(age)}
+                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 text-left ${
+                      selectedAgeGroup === age 
+                        ? 'bg-blue-600 text-white' 
+                        : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
                     }`}
                   >
-                    <span className="font-medium">{day.name}</span>
+                    {age === 'all' ? 'All Ages' : age}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Day Filters */}
+            <div>
+              <h3 className="text-lg font-semibold text-gray-700 mb-4">Schedule</h3>
+              <div className="grid grid-cols-1 gap-3">
+                {days.map(day => (
+                  <button
+                    key={day}
+                    onClick={() => setSelectedDay(day)}
+                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 text-left ${
+                      selectedDay === day 
+                        ? 'bg-green-600 text-white' 
+                        : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                    }`}
+                  >
+                    {day === 'all' ? 'Any Day' : day}
                   </button>
                 ))}
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Programs Grid */}
-      <section className="py-16 fade-in-section">
-        <div className="container-max">
-          <div className="text-center mb-12 animate-fade-in-up">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+      <div className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-800">
               {filteredPrograms.length} Program{filteredPrograms.length !== 1 ? 's' : ''} Available
             </h2>
-            <p className="text-lg text-gray-600">
-              {selectedCategory === 'all' ? 'All categories' : categories.find(c => c.id === selectedCategory)?.name} • 
-              {selectedAgeGroup === 'all' ? ' All ages' : ' ' + ageGroups.find(a => a.id === selectedAgeGroup)?.name} • 
-              {selectedDay === 'all' ? ' All schedules' : ' ' + days.find(d => d.id === selectedDay)?.name}
-            </p>
+            <div className="text-sm text-gray-600">
+              Showing {selectedCategory === 'all' ? 'all categories' : selectedCategory.toLowerCase()}
+              {selectedAgeGroup !== 'all' && ` • Ages ${selectedAgeGroup}`}
+              {selectedDay !== 'all' && ` • ${selectedDay}`}
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPrograms.map((program, index) => {
-              const categoryInfo = categories.find(c => c.id === program.category)
-              const IconComponent = categoryInfo?.icon || GraduationCap
-              
-              return (
-                <div
-                  key={program.id}
-                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden hover:transform hover:scale-105 animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="relative">
-                    <img
-                      src={program.image}
-                      alt={program.title}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className={`absolute top-4 left-4 ${categoryInfo?.color} text-white px-3 py-1 rounded-full text-sm font-medium flex items-center`}>
-                      <IconComponent className="h-4 w-4 mr-1" />
-                      {categoryInfo?.name}
-                    </div>
-                    <div className="absolute top-4 right-4 bg-white bg-opacity-90 text-gray-800 px-2 py-1 rounded-full text-sm font-medium flex items-center">
-                      <Star className="h-4 w-4 mr-1 text-yellow-500" />
-                      {program.rating}
-                    </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredPrograms.map((program, index) => (
+              <div 
+                key={program.id} 
+                className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in border border-gray-100"
+                style={{animationDelay: `${index * 0.1}s`}}
+              >
+                <div className="relative">
+                  <img 
+                    src={program.image} 
+                    alt={program.title}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getCategoryColor(program.category)}`}>
+                      {program.category}
+                    </span>
                   </div>
-
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{program.title}</h3>
-                    <p className="text-gray-600 mb-4">{program.description}</p>
-
-                    <div className="space-y-2 mb-4">
-                      <div className="flex items-center text-sm text-gray-500">
-                        <Clock className="h-4 w-4 mr-2" />
-                        {program.duration} • {program.schedule}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-500">
-                        <MapPin className="h-4 w-4 mr-2" />
-                        {program.location}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-500">
-                        <Users className="h-4 w-4 mr-2" />
-                        {program.enrolled}/{program.capacity} enrolled
-                      </div>
-                    </div>
-
-                    <div className="mb-4">
-                      <div className="flex flex-wrap gap-1">
-                        {program.features.map((feature, idx) => (
-                          <span
-                            key={idx}
-                            className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs font-medium"
-                          >
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div
-                          className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                          style={{ width: `${(program.enrolled / program.capacity) * 100}%` }}
-                        ></div>
-                      </div>
-                      <span className="ml-3 text-sm text-gray-500 whitespace-nowrap">
-                        {Math.round((program.enrolled / program.capacity) * 100)}% full
-                      </span>
-                    </div>
-
-                    <button className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center hover:transform hover:scale-105">
-                      Add to Cart
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </button>
+                  <div className="absolute top-3 right-3">
+                    <span className="bg-white bg-opacity-90 text-gray-700 px-2 py-1 rounded-full text-xs font-medium">
+                      Ages {program.ageGroup}
+                    </span>
                   </div>
                 </div>
-              )
-            })}
+                
+                <div className="p-5">
+                  {/* 1. Main Heading */}
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{program.title}</h3>
+                  
+                  {/* 2. Summarized Subheading Description */}
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{program.description}</p>
+                  
+                  {/* 3. Three Bullet Points */}
+                  <div className="space-y-2 mb-4">
+                    <div className="flex items-center text-sm text-gray-500">
+                      <svg className="w-4 h-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span className="font-medium">{program.duration}</span>
+                    </div>
+                    <div className="flex items-center text-sm text-gray-500">
+                      <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <span className="font-medium">{program.schedule}</span>
+                    </div>
+                    <div className="flex items-center text-sm text-gray-500">
+                      <svg className="w-4 h-4 mr-2 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                      <span className="font-medium">{program.enrollment}</span>
+                    </div>
+                  </div>
+                  
+                  {/* 4. Three Features/Benefits */}
+                  <div className="mb-4">
+                    <div className="flex flex-wrap gap-2">
+                      {program.features.map((feature, idx) => (
+                        <span 
+                          key={idx}
+                          className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700"
+                        >
+                          <svg className="w-3 h-3 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* 5. Star Rating */}
+                  <div className="flex items-center mb-4">
+                    <div className="flex items-center">
+                      {renderStars(program.rating)}
+                    </div>
+                    <span className="ml-2 text-sm font-medium text-gray-700">{program.rating}</span>
+                  </div>
+                  
+                  {/* 6. Add to Cart Button */}
+                  <button className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-2.5 px-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
 
           {filteredPrograms.length === 0 && (
-            <div className="text-center py-12 animate-fade-in-up">
+            <div className="text-center py-12">
               <div className="text-gray-400 mb-4">
-                <Filter className="h-16 w-16 mx-auto" />
+                <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.5-.816-6.207-2.175.193-.39.398-.774.618-1.15A4.978 4.978 0 0112 13.5c2.34 0 4.5-.816 6.207-2.175-.193-.39-.398-.774-.618-1.15A4.978 4.978 0 0112 11.5z" />
+                </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No programs found</h3>
-              <p className="text-gray-600 mb-6">Try adjusting your filters to see more programs</p>
-              <button
+              <h3 className="text-xl font-semibold text-gray-600 mb-2">No programs found</h3>
+              <p className="text-gray-500 mb-4">Try adjusting your filters to see more programs.</p>
+              <button 
                 onClick={() => {
                   setSelectedCategory('all')
                   setSelectedAgeGroup('all')
                   setSelectedDay('all')
                 }}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-300"
               >
                 Clear All Filters
               </button>
             </div>
           )}
         </div>
-      </section>
+      </div>
 
       {/* Support Our Programs Section */}
-      <section className="py-16 bg-gray-100 fade-in-section">
-        <div className="container-max">
-          <div className="text-center animate-fade-in-up">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Support Our Programs</h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Your donation helps us provide these life-changing programs to youth in our community. 
-              Every contribution makes a difference in a young person's future.
-            </p>
-            <a
-              href="/get-involved#donation"
-              className="inline-flex items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg"
+      <div className="py-16 bg-blue-800 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-6 animate-fade-in">Support Our Programs</h2>
+          <p className="text-xl mb-8 animate-slide-up">
+            Your donation helps us provide these life-changing programs to youth in our community.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
+            <a 
+              href="/get-involved#donation" 
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300"
             >
               Make a Donation
-              <ArrowRight className="ml-2 h-5 w-5" />
+            </a>
+            <a 
+              href="/get-involved" 
+              className="bg-white hover:bg-gray-100 text-blue-800 px-8 py-3 rounded-lg font-semibold transition-colors duration-300"
+            >
+              Get Involved
             </a>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   )
 }
