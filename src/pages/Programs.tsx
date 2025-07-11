@@ -712,13 +712,13 @@ const Programs = () => {
       </div>
 
       {/* Programs Grid */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-16" style={{backgroundColor: '#1E1F20'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-800">
+            <h2 className="text-2xl font-bold text-white">
               {filteredPrograms.length} Program{filteredPrograms.length !== 1 ? 's' : ''} Available
             </h2>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-300">
               Showing {selectedCategory === 'all' ? 'all categories' : selectedCategory.toLowerCase()}
               {selectedAgeGroup !== 'all' && ` • Ages ${selectedAgeGroup}`}
               {selectedDay !== 'all' && ` • ${selectedDay}`}
@@ -729,8 +729,8 @@ const Programs = () => {
             {filteredPrograms.map((program, index) => (
               <div 
                 key={program.id} 
-                className="bg-gray-100 rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in border border-gray-200"
-                style={{animationDelay: `${index * 0.1}s`}}
+                className="rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in border border-gray-600"
+                style={{backgroundColor: '#121212', animationDelay: `${index * 0.1}s`}}
               >
                 <div className="relative">
                   <img 
@@ -752,26 +752,26 @@ const Programs = () => {
                 
                 <div className="p-5">
                   {/* 1. Main Heading */}
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{program.title}</h3>
+                  <h3 className="text-lg font-bold text-white mb-2">{program.title}</h3>
                   
                   {/* 2. Summarized Subheading Description */}
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{program.description}</p>
+                  <p className="text-gray-300 mb-4 text-sm leading-relaxed">{program.description}</p>
                   
                   {/* 3. Three Bullet Points */}
                   <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-sm text-gray-500">
+                    <div className="flex items-center text-sm text-gray-400">
                       <svg className="w-4 h-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span className="font-medium">{program.duration}</span>
                     </div>
-                    <div className="flex items-center text-sm text-gray-500">
+                    <div className="flex items-center text-sm text-gray-400">
                       <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                       <span className="font-medium">{program.schedule}</span>
                     </div>
-                    <div className="flex items-center text-sm text-gray-500">
+                    <div className="flex items-center text-sm text-gray-400">
                       <svg className="w-4 h-4 mr-2 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
@@ -785,7 +785,7 @@ const Programs = () => {
                       {program.features.map((feature, idx) => (
                         <span 
                           key={idx}
-                          className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-200 text-gray-700"
+                          className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-200"
                         >
                           <svg className="w-3 h-3 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -801,7 +801,7 @@ const Programs = () => {
                     <div className="flex items-center">
                       {renderStars(program.rating)}
                     </div>
-                    <span className="ml-2 text-sm font-medium text-gray-700">{program.rating}</span>
+                    <span className="ml-2 text-sm font-medium text-gray-300">{program.rating}</span>
                   </div>
                   
                   {/* 6. Add to Cart Button */}
@@ -820,8 +820,8 @@ const Programs = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.5-.816-6.207-2.175.193-.39.398-.774.618-1.15A4.978 4.978 0 0112 13.5c2.34 0 4.5-.816 6.207-2.175-.193-.39-.398-.774-.618-1.15A4.978 4.978 0 0112 11.5z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-600 mb-2">No programs found</h3>
-              <p className="text-gray-500 mb-4">Try adjusting your filters to see more programs.</p>
+              <h3 className="text-xl font-semibold text-gray-300 mb-2">No programs found</h3>
+              <p className="text-gray-400 mb-4">Try adjusting your filters to see more programs.</p>
               <button 
                 onClick={() => {
                   setSelectedCategory('all')
