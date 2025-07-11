@@ -712,7 +712,7 @@ const Programs = () => {
       </div>
 
       {/* Programs Grid */}
-      <div className="py-16 bg-white">
+      <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl font-bold text-gray-800">
@@ -729,7 +729,7 @@ const Programs = () => {
             {filteredPrograms.map((program, index) => (
               <div 
                 key={program.id} 
-                className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in border border-gray-100"
+                className="bg-gray-100 rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in border border-gray-200"
                 style={{animationDelay: `${index * 0.1}s`}}
               >
                 <div className="relative">
@@ -785,7 +785,7 @@ const Programs = () => {
                       {program.features.map((feature, idx) => (
                         <span 
                           key={idx}
-                          className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700"
+                          className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-200 text-gray-700"
                         >
                           <svg className="w-3 h-3 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
