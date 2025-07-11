@@ -26,772 +26,519 @@ const Programs = () => {
     return () => observer.disconnect()
   }, [])
 
+  const programs = [
+    // Youth Development Programs
+    {
+      id: 1,
+      title: 'Youth Leadership Academy',
+      category: 'youth',
+      ageGroup: 'teens',
+      description: 'Develop leadership skills through workshops, community projects, and mentorship opportunities.',
+      duration: '12 weeks',
+      schedule: 'Saturdays 10am-2pm',
+      location: 'Main Campus',
+      capacity: '25 participants',
+      featured: true,
+      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 2,
+      title: 'After-School Tutoring',
+      category: 'youth',
+      ageGroup: 'children',
+      description: 'Academic support and homework assistance in a safe, nurturing environment.',
+      duration: 'Ongoing',
+      schedule: 'Mon-Fri 3pm-6pm',
+      location: 'Learning Center',
+      capacity: '50 students',
+      featured: false,
+      image: 'https://images.pexels.com/photos/8471781/pexels-photo-8471781.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 3,
+      title: 'Summer Youth Employment',
+      category: 'youth',
+      ageGroup: 'teens',
+      description: 'Paid work experience program connecting teens with local businesses and organizations.',
+      duration: '8 weeks',
+      schedule: 'Mon-Fri 9am-3pm',
+      location: 'Various sites',
+      capacity: '40 positions',
+      featured: true,
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 4,
+      title: 'Teen Entrepreneurship Workshop',
+      category: 'youth',
+      ageGroup: 'teens',
+      description: 'Learn business fundamentals and develop entrepreneurial skills through hands-on projects.',
+      duration: '6 weeks',
+      schedule: 'Wednesdays 4pm-7pm',
+      location: 'Innovation Lab',
+      capacity: '20 participants',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 5,
+      title: 'Youth Mentorship Program',
+      category: 'youth',
+      ageGroup: 'teens',
+      description: 'One-on-one mentoring relationships with community professionals and role models.',
+      duration: '12 months',
+      schedule: 'Flexible scheduling',
+      location: 'Community locations',
+      capacity: '30 matches',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 6,
+      title: 'College Prep Academy',
+      category: 'youth',
+      ageGroup: 'teens',
+      description: 'Comprehensive college preparation including SAT prep, application assistance, and financial aid guidance.',
+      duration: '10 months',
+      schedule: 'Saturdays 9am-1pm',
+      location: 'Education Center',
+      capacity: '35 students',
+      featured: true,
+      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+
+    // Adult Education Programs
+    {
+      id: 7,
+      title: 'Adult Basic Education (ABE)',
+      category: 'education',
+      ageGroup: 'adults',
+      description: 'Fundamental reading, writing, and math skills for adults seeking to improve their education.',
+      duration: 'Self-paced',
+      schedule: 'Mon/Wed/Fri 6pm-9pm',
+      location: 'Adult Learning Center',
+      capacity: '40 students',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 8,
+      title: 'GED Preparation',
+      category: 'education',
+      ageGroup: 'adults',
+      description: 'Comprehensive preparation for the General Educational Development (GED) test.',
+      duration: '16 weeks',
+      schedule: 'Tues/Thurs 6pm-9pm',
+      location: 'Testing Center',
+      capacity: '25 students',
+      featured: true,
+      image: 'https://images.pexels.com/photos/8471781/pexels-photo-8471781.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 9,
+      title: 'English as a Second Language (ESL)',
+      category: 'education',
+      ageGroup: 'adults',
+      description: 'English language instruction for non-native speakers at beginner to advanced levels.',
+      duration: 'Ongoing',
+      schedule: 'Multiple time slots',
+      location: 'Language Center',
+      capacity: '60 students',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 10,
+      title: 'Digital Literacy Training',
+      category: 'education',
+      ageGroup: 'adults',
+      description: 'Basic computer skills, internet navigation, and digital communication training.',
+      duration: '8 weeks',
+      schedule: 'Saturdays 10am-1pm',
+      location: 'Computer Lab',
+      capacity: '20 participants',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 11,
+      title: 'Financial Literacy Workshop',
+      category: 'education',
+      ageGroup: 'adults',
+      description: 'Learn budgeting, saving, credit management, and financial planning skills.',
+      duration: '4 weeks',
+      schedule: 'Thursdays 7pm-9pm',
+      location: 'Community Room',
+      capacity: '30 participants',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 12,
+      title: 'Parenting Skills Classes',
+      category: 'education',
+      ageGroup: 'adults',
+      description: 'Evidence-based parenting strategies and child development education for parents.',
+      duration: '6 weeks',
+      schedule: 'Sundays 2pm-4pm',
+      location: 'Family Center',
+      capacity: '25 parents',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+
+    // Job Training Programs
+    {
+      id: 13,
+      title: 'Healthcare Career Training',
+      category: 'career',
+      ageGroup: 'adults',
+      description: 'Certified training for healthcare support roles including CNA, medical assistant, and home health aide.',
+      duration: '12 weeks',
+      schedule: 'Mon-Fri 9am-3pm',
+      location: 'Healthcare Training Center',
+      capacity: '20 students',
+      featured: true,
+      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 14,
+      title: 'Construction Skills Training',
+      category: 'career',
+      ageGroup: 'adults',
+      description: 'Hands-on training in carpentry, electrical, plumbing, and general construction skills.',
+      duration: '16 weeks',
+      schedule: 'Mon-Fri 8am-4pm',
+      location: 'Trade Skills Center',
+      capacity: '15 trainees',
+      featured: false,
+      image: 'https://images.pexels.com/photos/8471781/pexels-photo-8471781.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 15,
+      title: 'Culinary Arts Program',
+      category: 'career',
+      ageGroup: 'adults',
+      description: 'Professional culinary training with food safety certification and restaurant experience.',
+      duration: '20 weeks',
+      schedule: 'Tues-Sat 10am-6pm',
+      location: 'Culinary Institute',
+      capacity: '12 students',
+      featured: true,
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 16,
+      title: 'IT Support Certification',
+      category: 'career',
+      ageGroup: 'adults',
+      description: 'CompTIA A+ certification preparation and hands-on IT support training.',
+      duration: '14 weeks',
+      schedule: 'Mon/Wed/Fri 6pm-9pm',
+      location: 'Technology Center',
+      capacity: '18 students',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 17,
+      title: 'Customer Service Excellence',
+      category: 'career',
+      ageGroup: 'adults',
+      description: 'Develop professional customer service skills for retail, hospitality, and office environments.',
+      duration: '6 weeks',
+      schedule: 'Saturdays 9am-3pm',
+      location: 'Business Training Room',
+      capacity: '25 participants',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 18,
+      title: 'Small Business Development',
+      category: 'career',
+      ageGroup: 'adults',
+      description: 'Comprehensive training for aspiring entrepreneurs including business planning and marketing.',
+      duration: '10 weeks',
+      schedule: 'Thursdays 6pm-9pm',
+      location: 'Entrepreneur Hub',
+      capacity: '20 participants',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+
+    // Family Support Programs
+    {
+      id: 19,
+      title: 'Emergency Food Assistance',
+      category: 'family',
+      ageGroup: 'all',
+      description: 'Monthly food distributions and emergency food boxes for families in need.',
+      duration: 'Ongoing',
+      schedule: '2nd Saturday each month',
+      location: 'Food Distribution Center',
+      capacity: '200 families/month',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 20,
+      title: 'Housing Assistance Program',
+      category: 'family',
+      ageGroup: 'all',
+      description: 'Rental assistance, housing counseling, and support for families facing housing instability.',
+      duration: 'Case-by-case',
+      schedule: 'By appointment',
+      location: 'Housing Services Office',
+      capacity: '50 families/year',
+      featured: true,
+      image: 'https://images.pexels.com/photos/8471781/pexels-photo-8471781.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 21,
+      title: 'Childcare Support Services',
+      category: 'family',
+      ageGroup: 'children',
+      description: 'Subsidized childcare and after-school care for working parents and students.',
+      duration: 'Ongoing',
+      schedule: 'Mon-Fri 7am-6pm',
+      location: 'Childcare Center',
+      capacity: '40 children',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 22,
+      title: 'Family Counseling Services',
+      category: 'family',
+      ageGroup: 'all',
+      description: 'Professional counseling and therapy services for individuals and families.',
+      duration: 'Ongoing',
+      schedule: 'By appointment',
+      location: 'Counseling Center',
+      capacity: '30 families/month',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 23,
+      title: 'Senior Support Network',
+      category: 'family',
+      ageGroup: 'seniors',
+      description: 'Social activities, wellness programs, and support services for older adults.',
+      duration: 'Ongoing',
+      schedule: 'Various times',
+      location: 'Senior Center',
+      capacity: '75 seniors',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 24,
+      title: 'Crisis Intervention Services',
+      category: 'family',
+      ageGroup: 'all',
+      description: '24/7 crisis support, safety planning, and emergency assistance for families in crisis.',
+      duration: 'As needed',
+      schedule: '24/7 availability',
+      location: 'Crisis Center',
+      capacity: 'Unlimited',
+      featured: true,
+      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+
+    // Community Health Programs
+    {
+      id: 25,
+      title: 'Community Health Screenings',
+      category: 'health',
+      ageGroup: 'adults',
+      description: 'Free health screenings including blood pressure, diabetes, and cholesterol checks.',
+      duration: 'Monthly events',
+      schedule: '1st Saturday each month',
+      location: 'Health Clinic',
+      capacity: '100 people/event',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 26,
+      title: 'Mental Health First Aid',
+      category: 'health',
+      ageGroup: 'adults',
+      description: 'Training to recognize and respond to mental health and substance use challenges.',
+      duration: '8 hours',
+      schedule: 'Quarterly workshops',
+      location: 'Training Center',
+      capacity: '25 participants',
+      featured: false,
+      image: 'https://images.pexels.com/photos/8471781/pexels-photo-8471781.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 27,
+      title: 'Nutrition Education Program',
+      category: 'health',
+      ageGroup: 'all',
+      description: 'Cooking classes, nutrition education, and healthy eating workshops for all ages.',
+      duration: '4 weeks',
+      schedule: 'Tuesdays 6pm-8pm',
+      location: 'Community Kitchen',
+      capacity: '20 participants',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 28,
+      title: 'Substance Abuse Support Groups',
+      category: 'health',
+      ageGroup: 'adults',
+      description: 'Peer support groups and recovery resources for individuals and families affected by addiction.',
+      duration: 'Ongoing',
+      schedule: 'Multiple weekly meetings',
+      location: 'Recovery Center',
+      capacity: '15 per group',
+      featured: true,
+      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 29,
+      title: 'Fitness and Wellness Classes',
+      category: 'health',
+      ageGroup: 'all',
+      description: 'Free fitness classes including yoga, Zumba, and strength training for community members.',
+      duration: 'Ongoing',
+      schedule: 'Daily classes',
+      location: 'Fitness Center',
+      capacity: '30 per class',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 30,
+      title: 'Maternal and Child Health',
+      category: 'health',
+      ageGroup: 'families',
+      description: 'Prenatal education, parenting classes, and health services for mothers and young children.',
+      duration: 'Ongoing',
+      schedule: 'Various times',
+      location: 'Family Health Center',
+      capacity: '40 families',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+
+    // Community Engagement Programs
+    {
+      id: 31,
+      title: 'Neighborhood Watch Program',
+      category: 'community',
+      ageGroup: 'adults',
+      description: 'Community safety initiative bringing neighbors together to prevent crime and build relationships.',
+      duration: 'Ongoing',
+      schedule: 'Monthly meetings',
+      location: 'Various neighborhoods',
+      capacity: '200 participants',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 32,
+      title: 'Community Garden Project',
+      category: 'community',
+      ageGroup: 'all',
+      description: 'Shared gardening space where community members grow fresh produce and learn sustainable practices.',
+      duration: 'Seasonal',
+      schedule: 'Flexible participation',
+      location: 'Community Garden Site',
+      capacity: '50 plot holders',
+      featured: false,
+      image: 'https://images.pexels.com/photos/8471781/pexels-photo-8471781.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 33,
+      title: 'Cultural Arts Festival',
+      category: 'community',
+      ageGroup: 'all',
+      description: 'Annual celebration of community diversity through music, dance, food, and cultural exhibitions.',
+      duration: '3-day event',
+      schedule: 'Annual in September',
+      location: 'Community Park',
+      capacity: '5000 attendees',
+      featured: true,
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 34,
+      title: 'Volunteer Coordination Program',
+      category: 'community',
+      ageGroup: 'all',
+      description: 'Matching community volunteers with local organizations and service opportunities.',
+      duration: 'Ongoing',
+      schedule: 'Flexible scheduling',
+      location: 'Volunteer Center',
+      capacity: '300 active volunteers',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 35,
+      title: 'Community Leadership Institute',
+      category: 'community',
+      ageGroup: 'adults',
+      description: 'Leadership development program for community members interested in civic engagement.',
+      duration: '9 months',
+      schedule: 'Monthly sessions',
+      location: 'Leadership Center',
+      capacity: '25 participants',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      id: 36,
+      title: 'Community Resource Fair',
+      category: 'community',
+      ageGroup: 'all',
+      description: 'Quarterly event connecting community members with local services, resources, and opportunities.',
+      duration: '1-day event',
+      schedule: 'Quarterly',
+      location: 'Community Center',
+      capacity: '1000 attendees',
+      featured: false,
+      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=400'
+    }
+  ]
+
   const categories = [
-    { id: 'all', name: 'All Programs', icon: '🎯' },
-    { id: 'career', name: 'Career Development', icon: '💼' },
-    { id: 'youth', name: 'Youth Programs', icon: '🌟' },
-    { id: 'education', name: 'Education & Tutoring', icon: '📚' },
-    { id: 'sports', name: 'Sports & Recreation', icon: '⚽' },
-    { id: 'arts', name: 'Arts & Creative', icon: '🎨' },
-    { id: 'community', name: 'Community Support', icon: '🤝' }
+    { id: 'all', name: 'All Programs', icon: Heart, color: 'bg-gray-600' },
+    { id: 'youth', name: 'Youth Development', icon: GraduationCap, color: 'bg-blue-600' },
+    { id: 'education', name: 'Adult Education', icon: Users, color: 'bg-green-600' },
+    { id: 'career', name: 'Job Training', icon: Briefcase, color: 'bg-purple-600' },
+    { id: 'family', name: 'Family Support', icon: Heart, color: 'bg-red-600' },
+    { id: 'health', name: 'Community Health', icon: Heart, color: 'bg-pink-600' },
+    { id: 'community', name: 'Community Engagement', icon: Users, color: 'bg-indigo-600' }
   ]
 
   const ageGroups = [
     { id: 'all', name: 'All Ages' },
-    { id: 'elementary', name: 'Elementary (5-10)' },
-    { id: 'middle', name: 'Middle School (11-13)' },
-    { id: 'high', name: 'High School (14-18)' },
-    { id: 'young-adult', name: 'Young Adults (18-25)' },
-    { id: 'adult', name: 'Adults (25+)' }
+    { id: 'children', name: 'Children (5-12)' },
+    { id: 'teens', name: 'Teens (13-18)' },
+    { id: 'adults', name: 'Adults (18+)' },
+    { id: 'seniors', name: 'Seniors (55+)' },
+    { id: 'families', name: 'Families' }
   ]
 
   const days = [
     { id: 'all', name: 'All Days' },
-    { id: 'monday', name: 'Monday' },
-    { id: 'tuesday', name: 'Tuesday' },
-    { id: 'wednesday', name: 'Wednesday' },
-    { id: 'thursday', name: 'Thursday' },
-    { id: 'friday', name: 'Friday' },
-    { id: 'saturday', name: 'Saturday' },
-    { id: 'sunday', name: 'Sunday' },
     { id: 'weekdays', name: 'Weekdays' },
-    { id: 'weekends', name: 'Weekends' }
+    { id: 'weekends', name: 'Weekends' },
+    { id: 'flexible', name: 'Flexible' }
   ]
 
-  const programs = [
-    // CAREER DEVELOPMENT PROGRAMS (6 total)
-    {
-      id: 1,
-      category: 'career',
-      title: 'Career Training & Development',
-      description: 'Comprehensive programs designed to equip individuals with in-demand skills and certifications for today\'s job market.',
-      features: [
-        'Industry-recognized certifications',
-        'Hands-on training with modern equipment',
-        'Job placement assistance',
-        'Ongoing career support'
-      ],
-      duration: '6-12 months',
-      participants: '200+ annually',
-      ageGroup: 'young-adult',
-      days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
-      time: '9:00 AM - 3:00 PM',
-      location: 'Main Training Center',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-      featured: true
-    },
-    {
-      id: 2,
-      category: 'career',
-      title: 'Professional Development Workshop',
-      description: 'Advanced training for working professionals looking to advance their careers and develop new skills.',
-      features: [
-        'Executive coaching',
-        'Professional networking events',
-        'Skills assessment and development',
-        'Industry-specific training'
-      ],
-      duration: '3-6 months',
-      participants: '100+ professionals',
-      ageGroup: 'adult',
-      days: ['tuesday', 'thursday'],
-      time: '6:00 PM - 8:00 PM',
-      location: 'Professional Development Center',
-      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 13,
-      category: 'career',
-      title: 'Digital Skills Bootcamp',
-      description: 'Intensive training in digital literacy, computer skills, and online tools essential for modern workplace success.',
-      features: [
-        'Microsoft Office certification',
-        'Social media marketing',
-        'Basic web development',
-        'Digital communication skills'
-      ],
-      duration: '8 weeks',
-      participants: '75+ graduates',
-      ageGroup: 'young-adult',
-      days: ['monday', 'wednesday', 'friday'],
-      time: '10:00 AM - 2:00 PM',
-      location: 'Technology Center',
-      image: 'https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 14,
-      category: 'career',
-      title: 'Financial Literacy & Entrepreneurship',
-      description: 'Comprehensive program teaching financial management, business planning, and entrepreneurial skills for economic empowerment.',
-      features: [
-        'Personal finance management',
-        'Business plan development',
-        'Credit building strategies',
-        'Investment basics'
-      ],
-      duration: '12 weeks',
-      participants: '60+ entrepreneurs',
-      ageGroup: 'adult',
-      days: ['saturday'],
-      time: '9:00 AM - 1:00 PM',
-      location: 'Business Development Center',
-      image: 'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 25,
-      category: 'career',
-      title: 'Healthcare Career Pathway',
-      description: 'Specialized training program preparing individuals for careers in healthcare with certifications and clinical experience.',
-      features: [
-        'Medical assistant certification',
-        'CPR and first aid training',
-        'Clinical internship placement',
-        'Healthcare industry networking'
-      ],
-      duration: '9 months',
-      participants: '40+ healthcare professionals',
-      ageGroup: 'young-adult',
-      days: ['tuesday', 'thursday', 'saturday'],
-      time: '8:00 AM - 4:00 PM',
-      location: 'Healthcare Training Center',
-      image: 'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 26,
-      category: 'career',
-      title: 'Construction & Trades Academy',
-      description: 'Hands-on training in construction trades including carpentry, electrical, plumbing, and HVAC with apprenticeship opportunities.',
-      features: [
-        'Multiple trade certifications',
-        'Safety training and OSHA compliance',
-        'Apprenticeship program connections',
-        'Tool and equipment training'
-      ],
-      duration: '6 months',
-      participants: '80+ skilled tradespeople',
-      ageGroup: 'young-adult',
-      days: ['monday', 'wednesday', 'friday'],
-      time: '7:00 AM - 3:00 PM',
-      location: 'Trades Training Facility',
-      image: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-
-    // YOUTH PROGRAMS (6 total)
-    {
-      id: 3,
-      category: 'youth',
-      title: 'Youth Leadership Academy',
-      description: 'Empowering young people with leadership skills, academic support, and mentorship opportunities.',
-      features: [
-        'Academic tutoring and support',
-        'Leadership development workshops',
-        'Peer mentoring programs',
-        'College and career readiness'
-      ],
-      duration: 'Year-round',
-      participants: '150+ youth served',
-      ageGroup: 'high',
-      days: ['monday', 'wednesday', 'friday'],
-      time: '4:00 PM - 6:00 PM',
-      location: 'Youth Center',
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
-      featured: true
-    },
-    {
-      id: 9,
-      category: 'youth',
-      title: 'Teen Entrepreneurship Program',
-      description: 'Business development program teaching young entrepreneurs how to start and manage their own ventures.',
-      features: [
-        'Business plan development',
-        'Financial literacy',
-        'Marketing strategies',
-        'Mentorship from local business owners'
-      ],
-      duration: '4 months',
-      participants: '40+ teen entrepreneurs',
-      ageGroup: 'high',
-      days: ['saturday'],
-      time: '10:00 AM - 2:00 PM',
-      location: 'Business Incubator',
-      image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 15,
-      category: 'youth',
-      title: 'Youth Mentorship Circle',
-      description: 'One-on-one and group mentoring program connecting youth with positive adult role models and peer support networks.',
-      features: [
-        'Individual mentor matching',
-        'Group mentoring sessions',
-        'Life skills workshops',
-        'Goal setting and achievement'
-      ],
-      duration: '6 months',
-      participants: '80+ mentees',
-      ageGroup: 'middle',
-      days: ['tuesday', 'thursday'],
-      time: '4:30 PM - 6:00 PM',
-      location: 'Mentorship Center',
-      image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 16,
-      category: 'youth',
-      title: 'College Prep & Scholarship Program',
-      description: 'Comprehensive college preparation including SAT/ACT prep, application assistance, and scholarship guidance.',
-      features: [
-        'Standardized test preparation',
-        'College application support',
-        'Scholarship search and applications',
-        'Financial aid guidance'
-      ],
-      duration: '10 months',
-      participants: '50+ college-bound students',
-      ageGroup: 'high',
-      days: ['tuesday', 'thursday', 'saturday'],
-      time: '3:00 PM - 5:00 PM',
-      location: 'Academic Success Center',
-      image: 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 27,
-      category: 'youth',
-      title: 'Youth Environmental Stewards',
-      description: 'Environmental education and conservation program teaching youth about sustainability and environmental responsibility.',
-      features: [
-        'Environmental science education',
-        'Community garden projects',
-        'Recycling and waste reduction',
-        'Nature conservation activities'
-      ],
-      duration: '8 months',
-      participants: '65+ young environmentalists',
-      ageGroup: 'middle',
-      days: ['wednesday', 'saturday'],
-      time: '3:00 PM - 5:00 PM',
-      location: 'Environmental Learning Center',
-      image: 'https://images.pexels.com/photos/2990644/pexels-photo-2990644.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 28,
-      category: 'youth',
-      title: 'Youth Civic Engagement Program',
-      description: 'Civics education program teaching youth about government, democracy, and community involvement through hands-on experiences.',
-      features: [
-        'Government and civics education',
-        'Mock trial and debate teams',
-        'Community service projects',
-        'Youth council participation'
-      ],
-      duration: '6 months',
-      participants: '45+ civic leaders',
-      ageGroup: 'high',
-      days: ['monday', 'friday'],
-      time: '4:00 PM - 6:00 PM',
-      location: 'Civic Education Center',
-      image: 'https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-
-    // EDUCATION & TUTORING PROGRAMS (6 total)
-    {
-      id: 5,
-      category: 'education',
-      title: 'After-School Tutoring Program',
-      description: 'Comprehensive academic support helping students excel in core subjects with personalized attention.',
-      features: [
-        'Math and Science tutoring',
-        'Reading and writing support',
-        'Homework assistance',
-        'Test preparation'
-      ],
-      duration: 'School year',
-      participants: '80+ students',
-      ageGroup: 'elementary',
-      days: ['monday', 'tuesday', 'wednesday', 'thursday'],
-      time: '3:30 PM - 5:30 PM',
-      location: 'Learning Center',
-      image: 'https://images.pexels.com/photos/8471781/pexels-photo-8471781.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 8,
-      category: 'education',
-      title: 'STEM Explorers Club',
-      description: 'Interactive science, technology, engineering, and math program with hands-on experiments and projects.',
-      features: [
-        'Robotics and coding',
-        'Science experiments',
-        'Engineering challenges',
-        'Math competitions'
-      ],
-      duration: 'Year-round',
-      participants: '90+ students',
-      ageGroup: 'middle',
-      days: ['monday', 'wednesday'],
-      time: '4:00 PM - 6:00 PM',
-      location: 'STEM Lab',
-      image: 'https://images.pexels.com/photos/8471709/pexels-photo-8471709.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 17,
-      category: 'education',
-      title: 'Adult Education & GED Prep',
-      description: 'Comprehensive adult education program helping individuals earn their GED and develop essential academic skills.',
-      features: [
-        'GED test preparation',
-        'Basic math and reading skills',
-        'English as Second Language (ESL)',
-        'Computer literacy training'
-      ],
-      duration: '6-12 months',
-      participants: '45+ adult learners',
-      ageGroup: 'adult',
-      days: ['tuesday', 'thursday'],
-      time: '6:00 PM - 8:30 PM',
-      location: 'Adult Learning Center',
-      image: 'https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 18,
-      category: 'education',
-      title: 'Summer Learning Academy',
-      description: 'Intensive summer program preventing learning loss while making education fun through hands-on activities and field trips.',
-      features: [
-        'Core subject reinforcement',
-        'Educational field trips',
-        'Creative learning projects',
-        'Reading incentive programs'
-      ],
-      duration: '6 weeks',
-      participants: '120+ summer scholars',
-      ageGroup: 'elementary',
-      days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
-      time: '9:00 AM - 1:00 PM',
-      location: 'Summer Campus',
-      image: 'https://images.pexels.com/photos/8471709/pexels-photo-8471709.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 29,
-      category: 'education',
-      title: 'Early Childhood Development',
-      description: 'Comprehensive early learning program for preschoolers focusing on school readiness and developmental milestones.',
-      features: [
-        'Pre-K curriculum and activities',
-        'Social and emotional development',
-        'Parent education workshops',
-        'Kindergarten transition support'
-      ],
-      duration: '9 months',
-      participants: '60+ preschoolers',
-      ageGroup: 'elementary',
-      days: ['monday', 'wednesday', 'friday'],
-      time: '9:00 AM - 12:00 PM',
-      location: 'Early Learning Center',
-      image: 'https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 30,
-      category: 'education',
-      title: 'Special Needs Learning Support',
-      description: 'Specialized educational support for students with learning differences and developmental disabilities.',
-      features: [
-        'Individualized education plans',
-        'Adaptive learning technologies',
-        'Behavioral support strategies',
-        'Family counseling and resources'
-      ],
-      duration: 'Year-round',
-      participants: '35+ special needs students',
-      ageGroup: 'elementary',
-      days: ['tuesday', 'thursday'],
-      time: '10:00 AM - 2:00 PM',
-      location: 'Special Education Center',
-      image: 'https://images.pexels.com/photos/8613092/pexels-photo-8613092.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-
-    // SPORTS & RECREATION PROGRAMS (6 total)
-    {
-      id: 6,
-      category: 'sports',
-      title: 'Youth Basketball League',
-      description: 'Competitive and recreational basketball program teaching teamwork, discipline, and athletic skills.',
-      features: [
-        'Skill development training',
-        'Team competition',
-        'Character building',
-        'Physical fitness'
-      ],
-      duration: '3 months per season',
-      participants: '120+ athletes',
-      ageGroup: 'middle',
-      days: ['tuesday', 'thursday', 'saturday'],
-      time: '5:00 PM - 7:00 PM',
-      location: 'Sports Complex',
-      image: 'https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=800',
-      featured: true
-    },
-    {
-      id: 10,
-      category: 'sports',
-      title: 'Summer Sports Camp',
-      description: 'Multi-sport summer program combining athletics with character development and leadership training.',
-      features: [
-        'Multiple sports activities',
-        'Swimming and water sports',
-        'Team building exercises',
-        'Healthy lifestyle education'
-      ],
-      duration: '8 weeks',
-      participants: '200+ campers',
-      ageGroup: 'elementary',
-      days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
-      time: '9:00 AM - 3:00 PM',
-      location: 'Recreation Center',
-      image: 'https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 19,
-      category: 'sports',
-      title: 'Fitness & Wellness Program',
-      description: 'Comprehensive health and fitness program promoting physical wellness, nutrition education, and healthy lifestyle choices.',
-      features: [
-        'Personal fitness training',
-        'Nutrition workshops',
-        'Mental health awareness',
-        'Group fitness classes'
-      ],
-      duration: '12 weeks',
-      participants: '85+ participants',
-      ageGroup: 'young-adult',
-      days: ['monday', 'wednesday', 'friday'],
-      time: '6:00 PM - 7:30 PM',
-      location: 'Wellness Center',
-      image: 'https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 20,
-      category: 'sports',
-      title: 'Adaptive Sports Program',
-      description: 'Inclusive sports program designed for youth with disabilities, promoting inclusion, confidence, and athletic achievement.',
-      features: [
-        'Adaptive equipment training',
-        'Inclusive team sports',
-        'Individual skill development',
-        'Peer support networks'
-      ],
-      duration: 'Year-round',
-      participants: '35+ adaptive athletes',
-      ageGroup: 'middle',
-      days: ['saturday', 'sunday'],
-      time: '10:00 AM - 12:00 PM',
-      location: 'Adaptive Sports Center',
-      image: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 31,
-      category: 'sports',
-      title: 'Youth Soccer Development League',
-      description: 'Comprehensive soccer program focusing on skill development, teamwork, and competitive play for all skill levels.',
-      features: [
-        'Professional coaching staff',
-        'Age-appropriate skill training',
-        'League competition games',
-        'Character and leadership development'
-      ],
-      duration: '4 months per season',
-      participants: '150+ soccer players',
-      ageGroup: 'elementary',
-      days: ['tuesday', 'thursday', 'saturday'],
-      time: '4:00 PM - 6:00 PM',
-      location: 'Soccer Fields Complex',
-      image: 'https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 32,
-      category: 'sports',
-      title: 'Martial Arts & Self-Defense',
-      description: 'Traditional martial arts training combined with practical self-defense skills, emphasizing discipline and respect.',
-      features: [
-        'Traditional martial arts forms',
-        'Self-defense techniques',
-        'Discipline and respect training',
-        'Belt ranking system'
-      ],
-      duration: 'Year-round',
-      participants: '70+ martial artists',
-      ageGroup: 'middle',
-      days: ['monday', 'wednesday', 'friday'],
-      time: '5:00 PM - 6:30 PM',
-      location: 'Martial Arts Dojo',
-      image: 'https://images.pexels.com/photos/7045617/pexels-photo-7045617.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-
-    // ARTS & CREATIVE PROGRAMS (6 total)
-    {
-      id: 7,
-      category: 'arts',
-      title: 'Creative Arts Workshop',
-      description: 'Hands-on arts program fostering creativity through painting, drawing, sculpture, and digital media.',
-      features: [
-        'Multiple art mediums',
-        'Professional instruction',
-        'Art exhibitions',
-        'Portfolio development'
-      ],
-      duration: '6 months',
-      participants: '60+ young artists',
-      ageGroup: 'high',
-      days: ['wednesday', 'friday'],
-      time: '4:00 PM - 6:00 PM',
-      location: 'Arts Studio',
-      image: 'https://images.pexels.com/photos/1109541/pexels-photo-1109541.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 11,
-      category: 'arts',
-      title: 'Music & Performance Academy',
-      description: 'Comprehensive music program offering instrument lessons, vocal training, and performance opportunities.',
-      features: [
-        'Individual and group lessons',
-        'Multiple instruments available',
-        'Vocal training and choir',
-        'Public performances'
-      ],
-      duration: 'Year-round',
-      participants: '75+ musicians',
-      ageGroup: 'middle',
-      days: ['tuesday', 'thursday', 'saturday'],
-      time: '3:00 PM - 5:00 PM',
-      location: 'Music Center',
-      image: 'https://images.pexels.com/photos/164821/pexels-photo-164821.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 21,
-      category: 'arts',
-      title: 'Drama & Theater Workshop',
-      description: 'Dynamic theater program developing confidence, public speaking skills, and creative expression through dramatic arts.',
-      features: [
-        'Acting and improvisation',
-        'Script writing workshops',
-        'Stage production experience',
-        'Public speaking development'
-      ],
-      duration: '4 months',
-      participants: '40+ young actors',
-      ageGroup: 'high',
-      days: ['monday', 'wednesday'],
-      time: '4:30 PM - 6:30 PM',
-      location: 'Theater Arts Center',
-      image: 'https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 22,
-      category: 'arts',
-      title: 'Digital Media & Photography',
-      description: 'Modern creative program teaching digital photography, video production, and multimedia storytelling skills.',
-      features: [
-        'Digital photography techniques',
-        'Video editing and production',
-        'Social media content creation',
-        'Portfolio development'
-      ],
-      duration: '8 weeks',
-      participants: '50+ digital creators',
-      ageGroup: 'high',
-      days: ['tuesday', 'friday'],
-      time: '4:00 PM - 6:00 PM',
-      location: 'Digital Media Lab',
-      image: 'https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 33,
-      category: 'arts',
-      title: 'Youth Dance Academy',
-      description: 'Comprehensive dance program offering multiple styles from hip-hop to ballet, building confidence and artistic expression.',
-      features: [
-        'Multiple dance styles training',
-        'Performance opportunities',
-        'Choreography workshops',
-        'Annual dance showcase'
-      ],
-      duration: '9 months',
-      participants: '80+ dancers',
-      ageGroup: 'middle',
-      days: ['monday', 'wednesday', 'friday'],
-      time: '4:00 PM - 5:30 PM',
-      location: 'Dance Studio',
-      image: 'https://images.pexels.com/photos/3621104/pexels-photo-3621104.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 34,
-      category: 'arts',
-      title: 'Creative Writing & Journalism',
-      description: 'Writing program developing storytelling skills, journalism techniques, and creative expression through various literary forms.',
-      features: [
-        'Creative writing workshops',
-        'Journalism and reporting skills',
-        'Poetry and storytelling',
-        'Student publication creation'
-      ],
-      duration: '6 months',
-      participants: '35+ young writers',
-      ageGroup: 'high',
-      days: ['tuesday', 'thursday'],
-      time: '4:00 PM - 5:30 PM',
-      location: 'Writing Center',
-      image: 'https://images.pexels.com/photos/261763/pexels-photo-261763.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-
-    // COMMUNITY SUPPORT PROGRAMS (6 total)
-    {
-      id: 4,
-      category: 'community',
-      title: 'Community Outreach Services',
-      description: 'Comprehensive support services addressing basic needs and connecting families to essential resources.',
-      features: [
-        'Emergency assistance programs',
-        'Resource navigation services',
-        'Community health initiatives',
-        'Family support services'
-      ],
-      duration: 'Ongoing',
-      participants: '500+ families served',
-      ageGroup: 'adult',
-      days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
-      time: '8:00 AM - 5:00 PM',
-      location: 'Community Resource Center',
-      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 12,
-      category: 'community',
-      title: 'Family Support Services',
-      description: 'Holistic family support including counseling, resource assistance, and parenting workshops.',
-      features: [
-        'Family counseling services',
-        'Parenting workshops',
-        'Emergency assistance',
-        'Resource referrals'
-      ],
-      duration: 'Ongoing',
-      participants: '300+ families',
-      ageGroup: 'adult',
-      days: ['monday', 'wednesday', 'friday'],
-      time: '9:00 AM - 5:00 PM',
-      location: 'Family Services Center',
-      image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 23,
-      category: 'community',
-      title: 'Senior Citizen Engagement Program',
-      description: 'Intergenerational program connecting seniors with youth while providing essential services and social engagement.',
-      features: [
-        'Technology assistance',
-        'Social activities and events',
-        'Health and wellness checks',
-        'Intergenerational mentoring'
-      ],
-      duration: 'Year-round',
-      participants: '150+ seniors',
-      ageGroup: 'adult',
-      days: ['tuesday', 'thursday'],
-      time: '10:00 AM - 2:00 PM',
-      location: 'Senior Community Center',
-      image: 'https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 24,
-      category: 'community',
-      title: 'Food Security & Nutrition Program',
-      description: 'Comprehensive food assistance program including food pantry, nutrition education, and community garden initiatives.',
-      features: [
-        'Weekly food distribution',
-        'Nutrition education workshops',
-        'Community garden participation',
-        'Cooking classes and meal planning'
-      ],
-      duration: 'Ongoing',
-      participants: '400+ families served',
-      ageGroup: 'adult',
-      days: ['wednesday', 'saturday'],
-      time: '9:00 AM - 3:00 PM',
-      location: 'Community Kitchen & Garden',
-      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 35,
-      category: 'community',
-      title: 'Housing & Homelessness Support',
-      description: 'Comprehensive housing assistance program providing emergency shelter, transitional housing, and permanent housing solutions.',
-      features: [
-        'Emergency shelter services',
-        'Transitional housing programs',
-        'Housing search assistance',
-        'Financial counseling and budgeting'
-      ],
-      duration: 'Ongoing',
-      participants: '200+ individuals housed',
-      ageGroup: 'adult',
-      days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
-      time: '24/7 Emergency Services',
-      location: 'Housing Services Center',
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 36,
-      category: 'community',
-      title: 'Mental Health & Wellness Support',
-      description: 'Community mental health program providing counseling, support groups, and wellness resources for individuals and families.',
-      features: [
-        'Individual and group counseling',
-        'Crisis intervention services',
-        'Support group facilitation',
-        'Mental health education workshops'
-      ],
-      duration: 'Ongoing',
-      participants: '250+ individuals served',
-      ageGroup: 'adult',
-      days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
-      time: '9:00 AM - 6:00 PM',
-      location: 'Mental Health Center',
-      image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800'
-    }
-  ]
-
-  // Filter programs based on selected criteria
-  // When all filters are set to 'all', show all programs (default state)
   const filteredPrograms = programs.filter(program => {
     const categoryMatch = selectedCategory === 'all' || program.category === selectedCategory
     const ageMatch = selectedAgeGroup === 'all' || program.ageGroup === selectedAgeGroup
-    const dayMatch = selectedDay === 'all' || 
-      program.days.includes(selectedDay) ||
-      (selectedDay === 'weekdays' && program.days.some(day => ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'].includes(day))) ||
-      (selectedDay === 'weekends' && program.days.some(day => ['saturday', 'sunday'].includes(day)))
-    
-    return categoryMatch && ageMatch && dayMatch
+    return categoryMatch && ageMatch
   })
-
-  const successStories = [
-    {
-      name: 'Marcus Thompson',
-      program: 'Career Training',
-      story: 'After completing our IT certification program, Marcus landed a position as a network administrator, increasing his income by 150%.',
-      image: 'https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&w=150'
-    },
-    {
-      name: 'Aisha Williams',
-      program: 'Youth Leadership Academy',
-      story: 'Through our mentorship program, Aisha developed leadership skills and is now attending college on a full scholarship.',
-      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150'
-    },
-    {
-      name: 'Carlos Rodriguez',
-      program: 'Teen Entrepreneurship',
-      story: 'Carlos launched his own landscaping business at 17 and now employs three other teens from our program.',
-      image: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150'
-    }
-  ]
 
   return (
     <div className="min-h-screen">
@@ -802,36 +549,42 @@ const Programs = () => {
             Our Programs
           </h1>
           <p className="section-subtitle text-gray-300 max-w-3xl mx-auto animate-fade-in-up-delay-1">
-            Comprehensive programs designed to create opportunities, build skills, and transform lives in our community.
+            Discover comprehensive programs designed to empower individuals, strengthen families, and build thriving communities. From youth development to career training, we're here to support your journey.
           </p>
         </div>
       </section>
 
       {/* Filter Section */}
-      <section className="bg-white py-8 border-b fade-in-section">
+      <section className="bg-white section-padding fade-in-section">
         <div className="container-max">
-          <div className="flex items-center gap-4 mb-8">
-            <Filter className="h-5 w-5 text-blue-800" />
-            <h3 className="text-lg font-semibold text-blue-800">Filter Programs</h3>
+          <div className="text-center mb-12">
+            <h2 className="section-title mb-4">Find Your Perfect Program</h2>
+            <p className="section-subtitle max-w-2xl mx-auto">
+              Use our filters to discover programs that match your interests and needs.
+            </p>
           </div>
-          
-          <div className="space-y-8">
+
+          {/* Filter Controls */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {/* Category Filter */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-4">Program Category</label>
-              <div className="flex flex-wrap gap-3">
-                {categories.map(category => (
+              <h3 className="font-semibold text-gray-800 mb-4 flex items-center">
+                <Filter className="h-5 w-5 mr-2 text-blue-600" />
+                Program Category
+              </h3>
+              <div className="grid grid-cols-1 gap-2">
+                {categories.map((category) => (
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    className={`p-3 rounded-lg text-left transition-all duration-300 flex items-center space-x-3 ${
                       selectedCategory === category.id
-                        ? 'bg-blue-800 text-white shadow-lg transform scale-105'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:transform hover:scale-105'
+                        ? `${category.color} text-white shadow-lg transform scale-105`
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
-                    <span className="mr-2">{category.icon}</span>
-                    {category.name}
+                    <category.icon className="h-5 w-5" />
+                    <span className="font-medium">{category.name}</span>
                   </button>
                 ))}
               </div>
@@ -839,60 +592,68 @@ const Programs = () => {
 
             {/* Age Group Filter */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-4">Age Group</label>
-              <div className="flex flex-wrap gap-3">
-                {ageGroups.map(age => (
+              <h3 className="font-semibold text-gray-800 mb-4 flex items-center">
+                <Users className="h-5 w-5 mr-2 text-blue-600" />
+                Age Group
+              </h3>
+              <div className="grid grid-cols-1 gap-2">
+                {ageGroups.map((ageGroup) => (
                   <button
-                    key={age.id}
-                    onClick={() => setSelectedAgeGroup(age.id)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                      selectedAgeGroup === age.id
-                        ? 'bg-red-600 text-white shadow-lg transform scale-105'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:transform hover:scale-105'
+                    key={ageGroup.id}
+                    onClick={() => setSelectedAgeGroup(ageGroup.id)}
+                    className={`p-3 rounded-lg text-left transition-all duration-300 ${
+                      selectedAgeGroup === ageGroup.id
+                        ? 'bg-blue-600 text-white shadow-lg transform scale-105'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
-                    {age.name}
+                    <span className="font-medium">{ageGroup.name}</span>
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Day Filter */}
+            {/* Schedule Filter */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-4">Days Available</label>
-              <div className="flex flex-wrap gap-3">
-                {days.map(day => (
+              <h3 className="font-semibold text-gray-800 mb-4 flex items-center">
+                <Calendar className="h-5 w-5 mr-2 text-blue-600" />
+                Schedule
+              </h3>
+              <div className="grid grid-cols-1 gap-2">
+                {days.map((day) => (
                   <button
                     key={day.id}
                     onClick={() => setSelectedDay(day.id)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    className={`p-3 rounded-lg text-left transition-all duration-300 ${
                       selectedDay === day.id
                         ? 'bg-green-600 text-white shadow-lg transform scale-105'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:transform hover:scale-105'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
-                    {day.name}
+                    <span className="font-medium">{day.name}</span>
                   </button>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-            <div className="text-sm text-blue-800 font-medium">
-              Showing {filteredPrograms.length} of {programs.length} programs
-            </div>
-            <div className="text-xs text-blue-600 mt-1">
-              {selectedCategory !== 'all' && `Category: ${categories.find(c => c.id === selectedCategory)?.name} • `}
-              {selectedAgeGroup !== 'all' && `Age: ${ageGroups.find(a => a.id === selectedAgeGroup)?.name} • `}
-              {selectedDay !== 'all' && `Days: ${days.find(d => d.id === selectedDay)?.name}`}
-            </div>
+          {/* Results Summary */}
+          <div className="text-center mb-8">
+            <p className="text-lg text-gray-600">
+              Showing <span className="font-bold text-blue-600">{filteredPrograms.length}</span> programs
+              {selectedCategory !== 'all' && (
+                <span> in <span className="font-semibold">{categories.find(c => c.id === selectedCategory)?.name}</span></span>
+              )}
+              {selectedAgeGroup !== 'all' && (
+                <span> for <span className="font-semibold">{ageGroups.find(a => a.id === selectedAgeGroup)?.name}</span></span>
+              )}
+            </p>
           </div>
         </div>
       </section>
 
       {/* Programs Grid */}
-      <section className="section-padding fade-in-section">
+      <section className="bg-gray-50 section-padding fade-in-section">
         <div className="container-max">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPrograms.map((program, index) => (
@@ -909,6 +670,13 @@ const Programs = () => {
                       Featured
                     </div>
                   )}
+                  <div className="absolute top-4 right-4">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium text-white ${
+                      categories.find(c => c.id === program.category)?.color || 'bg-gray-600'
+                    }`}>
+                      {categories.find(c => c.id === program.category)?.name}
+                    </span>
+                  </div>
                 </div>
                 
                 <div className="p-6">
@@ -919,40 +687,29 @@ const Programs = () => {
                     {program.description}
                   </p>
                   
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Calendar className="h-4 w-4 mr-2 text-blue-600" />
-                      <span>{program.days.slice(0, 2).map(day => day.charAt(0).toUpperCase() + day.slice(1)).join(', ')}{program.days.length > 2 ? ` +${program.days.length - 2} more` : ''}</span>
-                    </div>
+                  <div className="space-y-2 mb-6">
                     <div className="flex items-center text-sm text-gray-600">
                       <Clock className="h-4 w-4 mr-2 text-blue-600" />
-                      <span>{program.time}</span>
+                      <span>{program.duration}</span>
+                    </div>
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Calendar className="h-4 w-4 mr-2 text-blue-600" />
+                      <span>{program.schedule}</span>
                     </div>
                     <div className="flex items-center text-sm text-gray-600">
                       <MapPin className="h-4 w-4 mr-2 text-blue-600" />
                       <span>{program.location}</span>
                     </div>
-                  </div>
-                  
-                  <ul className="space-y-2 mb-6">
-                    {program.features.slice(0, 3).map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start space-x-2 text-sm">
-                        <CheckCircle className="h-4 w-4 text-red-600 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <div className="flex justify-between items-center pt-4 border-t">
-                    <div>
-                      <p className="text-xs text-gray-500">Duration</p>
-                      <p className="text-sm font-semibold text-blue-800">{program.duration}</p>
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Users className="h-4 w-4 mr-2 text-blue-600" />
+                      <span>{program.capacity}</span>
                     </div>
-                    <button className="btn-primary text-sm px-4 py-2 inline-flex items-center">
-                      Add to Cart
-                      <ArrowRight className="ml-1 h-4 w-4" />
-                    </button>
                   </div>
+                  
+                  <button className="btn-primary w-full text-sm inline-flex items-center justify-center">
+                    Add to Cart
+                    <ArrowRight className="ml-1 h-4 w-4" />
+                  </button>
                 </div>
               </div>
             ))}
@@ -960,48 +717,23 @@ const Programs = () => {
 
           {filteredPrograms.length === 0 && (
             <div className="text-center py-16">
-              <div className="text-gray-400 mb-4">
-                <Filter className="h-16 w-16 mx-auto" />
+              <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Filter className="h-12 w-12 text-gray-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-600 mb-2">No programs found</h3>
-              <p className="text-gray-500">Try adjusting your filters to see more programs.</p>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">No Programs Found</h3>
+              <p className="text-gray-600 mb-6">Try adjusting your filters to see more programs.</p>
+              <button
+                onClick={() => {
+                  setSelectedCategory('all')
+                  setSelectedAgeGroup('all')
+                  setSelectedDay('all')
+                }}
+                className="btn-primary"
+              >
+                Clear All Filters
+              </button>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Success Stories */}
-      <section className="bg-gray-50 section-padding fade-in-section">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="section-title mb-6">
-              Success Stories
-            </h2>
-            <p className="section-subtitle max-w-3xl mx-auto">
-              Real transformations from real people who have participated in our programs.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {successStories.map((story, index) => (
-              <div key={index} className="card p-8 animate-card-hover" style={{ animationDelay: `${index * 0.2}s` }}>
-                <div className="flex items-center space-x-4 mb-6">
-                  <img
-                    src={story.image}
-                    alt={story.name}
-                    className="w-16 h-16 rounded-full object-cover transition-transform duration-300 hover:scale-110"
-                  />
-                  <div>
-                    <h3 className="feature-title">{story.name}</h3>
-                    <p className="text-red-600 font-medium">{story.program}</p>
-                  </div>
-                </div>
-                <p className="body-text text-lg leading-relaxed">
-                  {story.story}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -1012,14 +744,14 @@ const Programs = () => {
             Ready to Get Started?
           </h2>
           <p className="section-subtitle text-blue-100 mb-8 max-w-2xl mx-auto animate-fade-in-up-delay-1">
-            Take the first step towards transforming your life. Our programs are designed to meet you where you are and help you reach your goals.
+            Take the first step towards positive change. Contact us today to learn more about enrollment and how we can support your goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up-delay-2">
             <button className="btn-primary bg-red-600 hover:bg-red-700">
-              Apply Now
+              Contact Us Today
             </button>
             <button className="btn-outline">
-              Schedule a Consultation
+              Download Program Guide
             </button>
           </div>
         </div>
